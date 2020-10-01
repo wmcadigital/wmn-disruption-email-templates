@@ -1,7 +1,7 @@
  <mj-section full-width="full-width" border-bottom="1px #979797 solid">
         <mj-group>
           <mj-column css-class="footerLogo">
-            <mj-image src="assets/wmca_greyscale.png" alt="WMN" align="left" width="145px" padding-top="5px" padding-left="0px" href="htps://www.wmca.org.uk"></mj-image>
+            <mj-image src="assets/wmca_greyscale.png" alt="WMN" align="left" width="145px" padding-top="5px" padding-left="0px" href="https://www.wmca.org.uk"></mj-image>
           </mj-column>
           <mj-column padding-right="5px" css-class="footerText">
             <mj-text align="right" font-size="12px" padding="0px">You received this email because you signed up for disruption alerts.</mj-text>

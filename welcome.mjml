@@ -76,7 +76,7 @@
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left">Hi Customer Name,</mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="0px">You have signed up to recieve email disruption alerts for your chosen service(s).
+          <mj-text align="left" padding-top="0px" padding-bottom="0px">You have signed up to receive email disruption alerts for your chosen service(s).
           </mj-text>
 
           <mj-text padding-left="20px" padding-top="0px" padding-bottom="0px">
