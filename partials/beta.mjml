@@ -1,0 +1,8 @@
+  <mj-section background-color="#f3f2f1" vertical-align="middle" padding-top="10px" padding-right="0px" padding-bottom="10px" padding-left="0px">
+        <mj-column vertical-align="top" width="10%" css-class="betaLeft">
+          <mj-image src="assets/beta.png" alt="Beta" align="left" width="45px" padding="0"></mj-image>
+        </mj-column>
+        <mj-column vertical-align="middle" width="90%" padding-right="5px" css-class="betaRight">
+          <mj-text align="left" padding="0px 0 0 10px">This is a new service - your <a class="link" href="https://surveys.hotjar.com/s?siteId=264586&surveyId=158470" target="_blank">feedback</a> will help us to improve it.</mj-text>
+        </mj-column>
+ </mj-section>
