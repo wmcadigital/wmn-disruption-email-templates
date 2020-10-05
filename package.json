@@ -1,0 +1,22 @@
+{
+  "name": "wmn-disruption-email-templates",
+  "version": "1.0.0",
+  "description": "Email templates for the Disruptions to be imported into Campaign Monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmcadigital/wmn-disruption-email-templates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmcadigital/wmn-disruption-email-templates/issues"
+  },
+  "homepage": "https://github.com/wmcadigital/wmn-disruption-email-templates#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
