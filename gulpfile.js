@@ -17,7 +17,9 @@ console.log(emailDummyData);
 const buildEmails = () => {
   return src('src/templates/**/*.mjml')
     .pipe(plugins.data((file) => emailDummyData))
-    .pipe(liquid())
+    .pipe(liquid({
+      ext: '.mjml'
+    }))
     .pipe(mjml())
 
     // .pipe(plugins.formatHtml())
