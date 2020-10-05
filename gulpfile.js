@@ -8,13 +8,16 @@ const mjml = require('gulp-mjml');
 
 // Gulp requires
 const plugins = require('gulp-load-plugins')();
+const liquid = require('@tuanpham-dev/gulp-liquidjs')
+
 // Local requires
-const emailDummyData = require('./src/data.json');
+const emailDummyData = require('./src/templates/welcome.json');
+console.log(emailDummyData);
 
 const buildEmails = () => {
   return src('src/templates/**/*.mjml')
-    .pipe(plugins.data(() => emailDummyData))
-    .pipe(plugins.liquid())
+    .pipe(plugins.data((file) => emailDummyData))
+    .pipe(liquid())
     .pipe(mjml())
 
     // .pipe(plugins.formatHtml())
