@@ -15,30 +15,37 @@ function handleMJMLErrors(err) {
 }
 
 const buildMJMLWithDummyData = () => {
-  return src(paths.templates.src)
-    .pipe(
-      plugins.data(file => {
-        let dummyData;
-        try {
-          dummyData = JSON.parse(
-            fs.readFileSync(path.dirname(file.path) + '/' + path.parse(file.path).name + '.dummyData.json')
-          );
-        } catch (error) {
-          dummyData = null;
-        }
-        return dummyData;
-      })
-    )
-    .pipe(
-      liquid({
-        ext: '.mjml'
-      })
-    )
-    .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
-    .on('error', handleMJMLErrors)
-    .pipe(dest(paths.templates.output))
-    .pipe(plugins.html2txt({ ignoreImage: true }))
-    .pipe(dest(paths.textTemplates.output));
+  return (
+    src(paths.templates.src)
+      // Inject dummy data
+      .pipe(
+        plugins.data(file => {
+          let dummyData;
+          try {
+            // If there is a file named the same as the template with x.dummyData.json, then we will use that as the reference for our dummy data
+            dummyData = JSON.parse(
+              fs.readFileSync(path.dirname(file.path) + '/' + path.parse(file.path).name + '.dummyData.json')
+            );
+          } catch (error) {
+            // If no dummyData.json file then just set to null and don't use anything to inject data
+            dummyData = null;
+          }
+          return dummyData;
+        })
+      )
+      // Render the variables/logic in the templates. Keep the extension as .mjml so we can still convert the MJML syntax after
+      .pipe(
+        liquid({
+          ext: '.mjml'
+        })
+      )
+      .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
+      .on('error', handleMJMLErrors)
+      .pipe(dest(paths.templates.output))
+      // After html templates are created, generate some txt ones...
+      .pipe(plugins.html2txt({ ignoreImage: true }))
+      .pipe(dest(paths.textTemplates.output))
+  );
 };
 
 module.exports = buildMJMLWithDummyData;

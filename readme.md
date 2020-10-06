@@ -6,17 +6,13 @@ Templates are built using [mjml](https://mjml.io/documentation/)
 
 ## Installation
 
-Clone this repo - <https://github.com/wmcadigital/wmn-disruption-email-templates.git>
-
-Develop with preferred environment:
-
-* The [mjml app](https://mjmlio.github.io/mjml-app/) MJML App (MJML is included)
-
-* [Visual Studio Code plugin](https://github.com/attilabuti/vscode-mjml) (MJML is included)
-
-* [Atom plugin](https://atom.io/users/mjmlio) (MJML needs to be installed separately)
-
-* [Sublime Text plugin](https://packagecontrol.io/packages/MJML-syntax) (MJML needs to be installed separately)
+1. Clone this repo - <https://github.com/wmcadigital/wmn-disruption-email-templates.git>
+2. Run `npm install` in the terminal
+3. Run `npm start` in terminal
+4. Start working on files within `src` directory
+5. Any changes will be rendered out as a html and txt template with the same name of your mjml template field
+6. When ready to go live, push changes up and raise a pull request
+7. When approved, run `npm run build` in the terminal to generate the `build` folder for live services
 
 ## Contributing
 

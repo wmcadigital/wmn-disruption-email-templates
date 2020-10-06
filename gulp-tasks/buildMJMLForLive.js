@@ -11,13 +11,17 @@ function handleMJMLErrors(err) {
   this.emit('end');
 }
 
+// Build the MJML templates for the live system(so don't inject dummy data)
 const buildMJMLWithDummyData = () => {
-  return src(paths.templates.src)
-    .pipe(plugins.mjml(mjmlEngine, { minify: true, validation: 'strict' }))
-    .on('error', handleMJMLErrors)
-    .pipe(dest(paths.templates.output))
-    .pipe(plugins.html2txt({ ignoreImage: true }))
-    .pipe(dest(paths.textTemplates.output));
+  return (
+    src(paths.templates.src)
+      .pipe(plugins.mjml(mjmlEngine, { minify: true, validation: 'strict' }))
+      .on('error', handleMJMLErrors)
+      .pipe(dest(paths.templates.output))
+      // After html templates are created, generate some txt ones...
+      .pipe(plugins.html2txt({ ignoreImage: true }))
+      .pipe(dest(paths.textTemplates.output))
+  );
 };
 
 module.exports = buildMJMLWithDummyData;

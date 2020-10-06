@@ -2,6 +2,7 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const paths = require('./gulp-tasks/paths.js'); // List of all paths in a config
 
+// ASSETS
 const moveAssets = () => {
   return src(paths.assets.src).pipe(dest(paths.assets.output));
 };
@@ -22,7 +23,9 @@ function watchFiles() {
   watch([paths.templates.src, paths.partials.src], series(buildMJMLWithDummyData, reload)); // lint and build scripts
 }
 
+// EXPORTS
 const serve = series(cleanBuild, moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));
 
 exports.default = serve;
 exports.buildLive = series(cleanBuild, moveAssets, buildMJMLForLive);
+exports.clean = cleanBuild;

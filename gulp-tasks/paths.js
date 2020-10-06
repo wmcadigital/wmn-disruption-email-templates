@@ -10,7 +10,6 @@ module.exports = {
     output: 'build/htmlTemplates/'
   },
   textTemplates: {
-    src: 'build/htmlTemplates/**/*.html',
     output: 'build/txtTemplates/'
   },
   partials: {
