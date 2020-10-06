@@ -16,7 +16,7 @@ Templates are built using [mjml](https://mjml.io/documentation/)
 
 ## Dummy data
 
-When testing it is important to ue accurate dummy date to ensure the codebase won't break on a live service.
+When testing it is important to ue accurate dummy data to ensure the codebase won't break on a live service.
 To use dummy data, name a file the same as your mjml template name with `.dummyData.json` appeneded. So for instance, if you had a template file called `example.mjml` then your dummy data file would be called `example.dummyData.json`.
 
 When your template has a dummy data file associate with it, it is then possible to reference this data using variables and logic via the [liquid templating syntax](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
