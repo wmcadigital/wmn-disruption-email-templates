@@ -1,0 +1,9 @@
+{
+  "Name": "Email Name",
+  "ConfirmLink": "https://www.google.com",
+  "PreferenceCenterLink": "https://www.microsoft.com",
+  "Services": [
+    { "Id": "12345", "Name": "1", "IdName": "Bus to nowhere" },
+    { "Id": "54321", "Name": "2", "IdName": "Back from nowhere" }
+  ]
+}

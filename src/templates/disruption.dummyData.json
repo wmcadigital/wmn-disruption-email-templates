@@ -1,0 +1,58 @@
+{
+  "Name": "Dayle",
+  "Email": "someone@wmca.org.uk",
+  "ResponseUrl": "https://www.google.com",
+  "Messages": [
+    {
+      "Title": "Castle Hill, Dudley",
+      "Subject": "Metro Extension work",
+      "AffectedServices": null,
+      "Description": "<strong>What's Happening?<br /><br /></strong>There are lane closures along Castle Hill in Dudley to allow the Metro extension works to take place.<br /><br />During this work, the bus lane will be out of use.<br /><br />Plan your journey as there is the possibility of increased traffic in the area.<br /><br />During this work, no buses will be diverted, but the two bus stops of Castle Hill will be out of use. Passengers should use the Bus Station instead which is a five-minute walk away.<br /><br /><strong>Travel Advice<br /><br /></strong>Allow extra time for your journey.",
+      "StartDate": "2020-02-24T00:01:00Z",
+      "EndDate": "2021-02-28T23:59:00Z",
+      "AffectedServicesNWM": [
+        "17a",
+        "223",
+        "229",
+        "11",
+        "126",
+        "27a",
+        "27",
+        "81",
+        "x8",
+        "17",
+        "42",
+        "74",
+        "87",
+        "11a",
+        "14",
+        "8",
+        "17a",
+        "42",
+        "1"
+      ],
+      "AffectedServicesIto": [
+        "85749",
+        "52777",
+        "25088",
+        "85551",
+        "4622",
+        "4641",
+        "9824",
+        "26270",
+        "63737",
+        "69888",
+        "104701",
+        "9139",
+        "13045",
+        "63807",
+        "90975",
+        "85752",
+        "86199",
+        "104700",
+        "44685"
+      ],
+      "InfoId": "7510_TfWM"
+    }
+  ]
+}
