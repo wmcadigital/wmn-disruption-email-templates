@@ -1,43 +1,23 @@
 // Gulp requires
 const { src, dest, watch, series, parallel } = require('gulp');
-const plugins = require('gulp-load-plugins')();
-const mjml = require('gulp-mjml');
-const liquid = require('@tuanpham-dev/gulp-liquidjs');
-const mjmlEngine = require('mjml');
-// Other requires
-const fs = require('fs');
-const path = require('path');
+const paths = require('./gulp-tasks/paths.js'); // List of all paths in a config
 
-// Handle errors for MJML issues
-function handleMJMLErrors(err) {
-  console.log(err.toString());
-  this.emit('end');
-}
-
-const buildEmails = () => {
-  return src('src/templates/**/*.mjml')
-    .pipe(
-      plugins.data(file => {
-        let dummyData;
-        try {
-          dummyData = JSON.parse(
-            fs.readFileSync(path.dirname(file.path) + '/' + path.parse(file.path).name + '.dummyData.json')
-          );
-        } catch (error) {
-          dummyData = null;
-        }
-        return dummyData;
-      })
-    )
-    .pipe(
-      liquid({
-        ext: '.mjml'
-      })
-    )
-    .pipe(mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
-    .on('error', handleMJMLErrors)
-    .pipe(dest('builded/'));
+const moveAssets = () => {
+  return src(paths.assets.src).pipe(dest(paths.assets.output));
 };
 
-// exports.default = serve;
-exports.buildEmails = buildEmails;
+// TEMPLATES
+const buildMJMLWithDummyData = require('./gulp-tasks/buildMJMLWithDummyData');
+
+const { browserSync, reload } = require('./gulp-tasks/browser-sync'); // BrowserSync server
+
+// WATCHERS
+function watchFiles() {
+  // Lint, concat, minify JS then reload server
+  watch(paths.templates.src, series(buildMJMLWithDummyData, reload)); // lint and build scripts
+}
+
+const serve = series(moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));
+
+exports.default = serve;
+exports.buildWithDummyData = series(moveAssets, buildMJMLWithDummyData);
