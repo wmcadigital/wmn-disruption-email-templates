@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp buildWithDummyData"
+    "build": "gulp buildLive"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@tuanpham-dev/gulp-liquidjs": "0.0.8",
     "browser-sync": "^2.26.12",
+    "del": "^6.0.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-data": "^1.3.1",

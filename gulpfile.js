@@ -8,7 +8,12 @@ const moveAssets = () => {
 
 // TEMPLATES
 const buildMJMLWithDummyData = require('./gulp-tasks/buildMJMLWithDummyData');
+const buildMJMLForLive = require('./gulp-tasks/buildMJMLForLive');
 
+// CLEANER
+const cleanBuild = require('./gulp-tasks/clean'); // Clean the current build
+
+// SERVER
 const { browserSync, reload } = require('./gulp-tasks/browser-sync'); // BrowserSync server
 
 // WATCHERS
@@ -17,7 +22,7 @@ function watchFiles() {
   watch(paths.templates.src, series(buildMJMLWithDummyData, reload)); // lint and build scripts
 }
 
-const serve = series(moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));
+const serve = series(cleanBuild, moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));
 
 exports.default = serve;
-exports.buildWithDummyData = series(moveAssets, buildMJMLWithDummyData);
+exports.buildLive = series(cleanBuild, moveAssets, buildMJMLForLive);
