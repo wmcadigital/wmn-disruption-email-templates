@@ -37,7 +37,7 @@ const buildMJMLWithDummyData = () => {
     .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
     .on('error', handleMJMLErrors)
     .pipe(dest(paths.templates.output))
-    .pipe(plugins.html2txt())
+    .pipe(plugins.html2txt({ ignoreImage: true }))
     .pipe(dest(paths.textTemplates.output));
 };
 

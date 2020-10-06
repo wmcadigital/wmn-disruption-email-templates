@@ -7,7 +7,8 @@ module.exports.browserSync = () => {
     server: {
       baseDir: paths.server.baseDir
     },
-    port: paths.server.port
+    port: paths.server.port,
+    directory: true
   });
 };
 
