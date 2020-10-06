@@ -36,7 +36,9 @@ const buildMJMLWithDummyData = () => {
     )
     .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
     .on('error', handleMJMLErrors)
-    .pipe(dest(paths.templates.output));
+    .pipe(dest(paths.templates.output))
+    .pipe(plugins.html2txt())
+    .pipe(dest(paths.textTemplates.output));
 };
 
 module.exports = buildMJMLWithDummyData;

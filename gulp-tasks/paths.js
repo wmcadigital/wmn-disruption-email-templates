@@ -7,7 +7,11 @@ module.exports = {
   },
   templates: {
     src: 'src/templates/**/*.mjml',
-    output: 'build/'
+    output: 'build/htmlTemplates/'
+  },
+  textTemplates: {
+    src: 'build/htmlTemplates/**/*.html',
+    output: 'build/txtTemplates/'
   },
   partials: {
     src: 'src/partials/**/*.mjml'

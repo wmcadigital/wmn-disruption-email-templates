@@ -15,7 +15,9 @@ const buildMJMLWithDummyData = () => {
   return src(paths.templates.src)
     .pipe(plugins.mjml(mjmlEngine, { minify: true, validation: 'strict' }))
     .on('error', handleMJMLErrors)
-    .pipe(dest(paths.templates.output));
+    .pipe(dest(paths.templates.output))
+    .pipe(plugins.html2txt({ ignoreImage: true }))
+    .pipe(dest(paths.textTemplates.output));
 };
 
 module.exports = buildMJMLWithDummyData;
