@@ -9,8 +9,11 @@ module.exports = {
     src: 'src/templates/**/*.mjml',
     output: 'build/'
   },
+  partials: {
+    src: 'src/partials/**/*.mjml'
+  },
   assets: {
-    src: 'src/assets/**/',
+    src: 'src/assets/**/*',
     output: 'build/assets/'
   }
 };

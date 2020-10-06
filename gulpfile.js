@@ -19,7 +19,7 @@ const { browserSync, reload } = require('./gulp-tasks/browser-sync'); // Browser
 // WATCHERS
 function watchFiles() {
   // Lint, concat, minify JS then reload server
-  watch(paths.templates.src, series(buildMJMLWithDummyData, reload)); // lint and build scripts
+  watch([paths.templates.src, paths.partials.src], series(buildMJMLWithDummyData, reload)); // lint and build scripts
 }
 
 const serve = series(cleanBuild, moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));

@@ -21,17 +21,15 @@
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
-    <mj-include path="partials/header.mjml" />
+    <mj-include path="../partials/header.mjml" />
 
     <mj-wrapper padding="0px 10px">
-      <mj-include path="partials/beta.mjml" />
+      <mj-include path="../partials/beta.mjml" />
 
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
-          <mj-text align="left">Hi Customer Name,</mj-text>
-          <mj-text align="left" font-weight="700"
-            >There is disruption due to Emergency Gas Main Repairs at Summer Lane, Birmingham City Centre.
-          </mj-text>
+          <mj-text align="left">Hi {{Name}},</mj-text>
+          <mj-text align="left" font-weight="700"> </mj-text>
         </mj-column>
       </mj-section>
 
@@ -306,7 +304,7 @@
         </mj-column>
       </mj-section>
 
-      <mj-include path="partials/footer.mjml" />
+      <mj-include path="../partials/footer.mjml" />
     </mj-wrapper>
   </mj-body>
 </mjml>
