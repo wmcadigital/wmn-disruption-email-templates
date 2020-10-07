@@ -88,7 +88,12 @@
           <mj-text align="left" font-weight="700" padding-bottom="0px">What happend? </mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="0px"> {{message.Description}} </mj-text>
           {% endfor %}
-          <mj-text align="left" padding-bottom="0px" padding-top="0px">
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
+        <mj-column width="100%">
+          <mj-text align="left" padding="0 25px">
             <p>
               We won’t send you any more emails about this disruption. To see the most recent updates, please visit our
               <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
@@ -104,9 +109,7 @@
             </p>
           </mj-text>
         </mj-column>
-      </mj-section>
 
-      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
         <mj-column width="50%">
           <mj-button
             padding-right="5px"
