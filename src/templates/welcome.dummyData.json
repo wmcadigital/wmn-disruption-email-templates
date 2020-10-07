@@ -1,6 +1,6 @@
 {
-  "Name": "Email Name",
-  "ConfirmLink": "https://www.google.com",
+  "Name": "Joe Bloggs",
+  "ConfirmLink": "http://google.com/#q=This+will+be+replaced+with+the+users+actual+confirm+link",
   "PreferenceCenterLink": "https://www.microsoft.com",
   "Services": [
     { "Id": "12345", "Name": "1", "IdName": "Bus to nowhere" },
