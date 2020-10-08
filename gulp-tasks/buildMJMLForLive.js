@@ -19,7 +19,7 @@ const buildMJMLWithDummyData = () => {
       .on('error', handleMJMLErrors)
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...
-      .pipe(plugins.html2txt({ ignoreImage: true }))
+      .pipe(plugins.html2txt({ ignoreImage: true, wordwrap: false }))
       .pipe(dest(paths.textTemplates.output))
   );
 };
