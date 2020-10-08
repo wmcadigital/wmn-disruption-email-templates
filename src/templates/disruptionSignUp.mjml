@@ -1,6 +1,6 @@
 <mjml>
   <mj-head>
-    <mj-title>WMN Disruption Alerts - {{ Name }}</mj-title>
+    <mj-title>WMN Disruption Alerts</mj-title>
     <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
     <mj-attributes>
       <mj-all font-family="Noto Sans, Arial, Helvetica, sans-serif"></mj-all>
@@ -28,16 +28,16 @@
 
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
-          <mj-text align="left">Hi Customer Name,</mj-text>
+          <mj-text align="left">Hi {{Name}},</mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="0px"
             >You have signed up to receive email disruption alerts for your chosen service(s).
           </mj-text>
 
           <mj-text padding-left="20px" padding-top="0px" padding-bottom="0px">
-            <ul>
-              <li>Service 1</li>
-              <li>Service 2</li>
-              <li>Service 3</li>
+            <ul style="list-style-type: none">
+              {% for item in Services %}
+              <li>Service: {{item.Name}} {{item.IdName}}</li>
+              {% endfor %}
             </ul>
           </mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="0px"
@@ -52,11 +52,11 @@
             width="100%"
             line-height="24px"
             font-weight="bold"
-            href="https://www.networkwestmidlands.com/"
+            href="{{ConfirmLink}}"
             css-class="hover"
             height="30px"
           >
-            Confirm email address
+            Confirm your subscription
           </mj-button>
         </mj-column>
       </mj-section>

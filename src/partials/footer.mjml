@@ -38,8 +38,9 @@
   <mj-column vertical-align="top" width="70%" css-class="preferences">
     <mj-text align="right" font-size="12px" padding="0px">
       <ul style="list-style-type: none; font-size: 12px; margin: 0px; padding: 0px">
-        <li><preferences style="color: #231f20; text-decoration: underline">Preference center</preferences></li>
-        <li><unsubscribe style="color: #231f20; text-decoration: underline">Unsubscribe</unsubscribe></li>
+        <li>
+          <a style="color: #231f20; text-decoration: underline" href="{{ResponseUrl}}">Manage alerts or unsubscribe</a>
+        </li>
       </ul>
     </mj-text>
   </mj-column>

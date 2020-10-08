@@ -26,231 +26,74 @@
     <mj-wrapper padding="0px 10px">
       <mj-include path="../partials/beta.mjml" />
 
-      <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
+      <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left">Hi {{Name}},</mj-text>
-          <mj-text align="left" font-weight="700"> </mj-text>
         </mj-column>
       </mj-section>
 
+      {% for message in Messages %}
       <mj-section padding="0 25px" background-color="#FFFFFF">
+        <mj-column width="100%">
+          <mj-text align="left" font-weight="700">
+            There is disruption due to {{message.Subject}} at {{message.Title}}.
+          </mj-text>
+        </mj-column>
         <mj-column width="200px" vertical-align="top" css-class="services">
           <mj-text align="left" padding-top="5px" padding-left="15px">Service(s) affected:</mj-text>
         </mj-column>
         <mj-column width="310px" vertical-align="top" css-class="servicelist">
           <mj-text align="left" padding="0px" font-size="16px">
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  X8
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  9
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  X10
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  12
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  12A
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  13
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  13A
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  23
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  24
-                </td>
-              </tr>
-            </table>
-            <table style="float: left">
-              <tr>
-                <td
-                  style="
-                    float: left;
-                    background: #cc6900;
-                    color: #ffffff;
-                    border-radius: 5px;
-                    text-align: center;
-                    font-weight: 700;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                  "
-                >
-                  126
-                </td>
-              </tr>
-            </table>
+            {% for item in message.AffectedServicesNWM %}<!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
+            <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
+              <table
+                bgcolor="#cc6900"
+                valign="top"
+                align="center"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                style="border-collapse: collapse; background: #ffffff"
+              >
+                <tr>
+                  <td
+                    align="center"
+                    bgcolor="#cc6900"
+                    style="
+                      padding: 5px 10px;
+                      font-size: 14px;
+                      color: #ffffff;
+                      border-radius: 5px;
+                      font-weight: 700;
+                      margin-right: 5px;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    {{item}}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
+            {% endfor %}
           </mj-text>
         </mj-column>
       </mj-section>
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
-          <mj-text align="left">This is estimated to continue until Friday 1 November at 06:00 PM </mj-text>
+          <mj-text align="left"
+            >This is estimated to continue until {{message.EndDate | date: '%a %e %B %Y at %I:%M %p'}}
+          </mj-text>
           <mj-divider border-width="1px" border-style="solid" border-color="#979797" />
           <mj-text align="left" font-weight="700" padding-bottom="0px">What happend? </mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="0px">
-            <p>
-              Part of Summer Lane outbound from Birmingham City Centre is currently closed due to emergency repairs to
-              fix a broken gas main.
-            </p>
-            <p>NXWM 7 and Claribels 424 are currently diverted and not serving 2 stops on Summer Lane.</p>
-            <p>The stops at Hampton Street and Lower Loveday Street are closed and services are not stopping here.</p>
-            <p>The diversion route is via Constitution Hill, Henritta Street, Summer Lane then normal line of route.</p>
-            <p>
-              Services inbound towards Birmingham City Centre are unaffected and will continue to use normal line of
-              route.
-            </p>
-          </mj-text>
-          <mj-text align="left" padding-bottom="0px" padding-top="0px">
+          <mj-text align="left" padding-top="0px" padding-bottom="0px"> {{message.Description}} </mj-text>
+          {% endfor %}
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
+        <mj-column width="100%">
+          <mj-text align="left" padding="0 25px">
             <p>
               We won’t send you any more emails about this disruption. To see the most recent updates, please visit our
               <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
@@ -266,9 +109,7 @@
             </p>
           </mj-text>
         </mj-column>
-      </mj-section>
 
-      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
         <mj-column width="50%">
           <mj-button
             padding-right="5px"
