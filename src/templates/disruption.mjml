@@ -97,14 +97,9 @@
             <p>
               We won’t send you any more emails about this disruption. To see the most recent updates, please visit our
               <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
-              <a
-                class="linkbold"
-                href="https://www.networkwestmidlands.com/plan-your-journey/disruptions/"
-                target="_blank"
-                >Disruptions section</a
-              >
+              <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
               of the
-              <a class="linkbold" href="https://www.networkwestmidlands.com/" target="_blank">West Midlands Network</a>
+              <a class="linkbold" href="https://www.wmnetwork.co.uk/" target="_blank">West Midlands Network</a>
               website.
             </p>
           </mj-text>
@@ -121,7 +116,7 @@
             width="100%"
             line-height="24px"
             font-weight="bold"
-            href="https://www.networkwestmidlands.com/"
+            href="https://www.wmnetwork.co.uk/"
             css-class="hoversec"
           >
             View disruption on a map
