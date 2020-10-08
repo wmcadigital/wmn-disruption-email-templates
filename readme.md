@@ -24,7 +24,7 @@ When your template has a dummy data file associate with it, it is then possible 
 
 ## Including partial files
 
-When including partial files it is important to use the liquid template syntax i.e. `{% include 'src/partials/header.mjml' %}` and not the MJML syntax. This is because the variables from the dummy data won't be rendered in time when using the MJML imports which will then show an inaccurate preview of the email templates.
+When including partial files it is important to use the MJML template syntax i.e. `<mj-include path="../partials/footer.mjml" />` and not the liquid template syntax. This is because the variables from the dummy data won't be rendered in time when using the liquid imports which will then show an inaccurate preview of the email templates.
 
 ## Contributing
 
