@@ -88,7 +88,7 @@
             >This is estimated to continue until {{message.EndDate | date: '%a %e %B %Y at %I:%M %p'}}
           </mj-text>
           <mj-divider border-width="1px" border-style="solid" border-color="#979797" />
-          <mj-text align="left" font-weight="700" padding-bottom="0px">What happend? </mj-text>
+          <mj-text align="left" font-weight="700" padding-bottom="0px">What happened? </mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="0px"> {{message.Description}} </mj-text>
         </mj-column>
       </mj-section>
