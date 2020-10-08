@@ -42,6 +42,12 @@ const buildMJMLWithDummyData = () => {
       // Render MJML templates
       .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
       .on('error', handleMJMLErrors)
+      // Render the variables/logic from partials pulled in from mjml include
+      .pipe(
+        liquid({
+          ext: '.html'
+        })
+      )
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...
       .pipe(plugins.html2txt({ ignoreImage: true }))

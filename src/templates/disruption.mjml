@@ -21,10 +21,12 @@
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
-    {% include 'src/partials/header.mjml' %}
+    <mj-include path="../partials/header.mjml" />
 
     <mj-wrapper padding="0px 10px">
-      {% include 'src/partials/beta.mjml' %}
+      <mj-include path="../partials/beta.mjml" />
+
+      <mj-raw> {% for message in Messages %}</mj-raw>
 
       <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
@@ -32,7 +34,6 @@
         </mj-column>
       </mj-section>
 
-      {% for message in Messages %}
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left" font-weight="700">
@@ -42,9 +43,9 @@
         <mj-column width="200px" vertical-align="top" css-class="services">
           <mj-text align="left" padding-top="5px" padding-left="15px">Service(s) affected:</mj-text>
         </mj-column>
-        {% for item in message.AffectedServicesNWM %}
         <mj-column width="310px" vertical-align="top" css-class="servicelist">
           <mj-text align="left" padding="0px" font-size="16px">
+            {% for item in message.AffectedServicesNWM %}
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
               <table
@@ -76,10 +77,11 @@
               </table>
             </div>
             <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
+            {% endfor %}
           </mj-text>
         </mj-column>
-        {% endfor %}
       </mj-section>
+
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left"
@@ -140,10 +142,10 @@
         </mj-column>
       </mj-section>
 
-      {% endfor %}
+      <mj-raw>{% endfor %}</mj-raw>
       <!-- End of message in messages for -->
 
-      {% include 'src/partials/footer.mjml' %}
+      <mj-include path="../partials/footer.mjml" />
     </mj-wrapper>
   </mj-body>
 </mjml>
