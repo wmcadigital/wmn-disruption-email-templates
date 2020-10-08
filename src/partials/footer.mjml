@@ -44,7 +44,7 @@
             >Manage alerts or unsubscribe</a
           >
           {% else %}
-          <a style="color: #231f20; text-decoration: underline" href="{{Name}}">Manage alerts or unsubscribe</a>
+          <a style="color: #231f20; text-decoration: underline" href="{{ResponseUrl}}">Manage alerts or unsubscribe</a>
           {% endif %}
         </li>
       </ul>
