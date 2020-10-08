@@ -21,10 +21,10 @@
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
-    {% include 'src/partials/header.mjml' %}
+    <mj-include path="../partials/header.mjml" />
 
     <mj-wrapper padding="0px 10px">
-      {% include 'src/partials/beta.mjml' %}
+      <mj-include path="../partials/beta.mjml" />
 
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
@@ -61,7 +61,7 @@
         </mj-column>
       </mj-section>
 
-      {% include 'src/partials/footer.mjml' %}
+      <mj-include path="../partials/footer.mjml" />
     </mj-wrapper>
   </mj-body>
 </mjml>
