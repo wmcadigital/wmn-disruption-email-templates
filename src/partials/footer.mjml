@@ -41,7 +41,6 @@
         <li>
           <a style="color: #231f20; text-decoration: underline" href="{{ResponseUrl}}">Manage alerts or unsubscribe</a>
         </li>
-        <!-- <li><unsubscribe style="color: #231f20; text-decoration: underline">Unsubscribe</unsubscribe></li> -->
       </ul>
     </mj-text>
   </mj-column>

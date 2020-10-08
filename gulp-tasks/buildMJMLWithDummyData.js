@@ -17,6 +17,8 @@ function handleMJMLErrors(err) {
 const buildMJMLWithDummyData = () => {
   return (
     src(paths.templates.src)
+      // Render MJML templates
+      .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
       // Inject dummy data
       .pipe(
         plugins.data(file => {
@@ -33,13 +35,12 @@ const buildMJMLWithDummyData = () => {
           return dummyData;
         })
       )
-      // Render the variables/logic in the templates. Keep the extension as .mjml so we can still convert the MJML syntax after
+      // Render the variables/logic in the templates
       .pipe(
         liquid({
-          ext: '.mjml'
+          ext: '.html'
         })
       )
-      .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
       .on('error', handleMJMLErrors)
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...
