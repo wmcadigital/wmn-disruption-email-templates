@@ -1,10 +1,15 @@
 // Gulp requires
 const { src, dest, watch, series, parallel } = require('gulp');
+const zip = require('gulp-zip');
 const paths = require('./gulp-tasks/paths.js'); // List of all paths in a config
 
 // ASSETS
 const moveAssets = () => {
   return src(paths.assets.src).pipe(dest(paths.assets.output));
+};
+// move the assets and zip them for production/ready to import into campaign monitor
+const moveAndZipAssets = () => {
+  return src(paths.assets.src).pipe(zip('assets.zip')).pipe(dest(paths.output));
 };
 
 // TEMPLATES
@@ -27,5 +32,5 @@ function watchFiles() {
 const serve = series(cleanBuild, moveAssets, buildMJMLWithDummyData, parallel(watchFiles, browserSync));
 
 exports.default = serve;
-exports.buildLive = series(cleanBuild, moveAssets, buildMJMLForLive);
+exports.buildLive = series(cleanBuild, moveAndZipAssets, buildMJMLForLive);
 exports.clean = cleanBuild;
