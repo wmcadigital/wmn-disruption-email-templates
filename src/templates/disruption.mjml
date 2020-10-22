@@ -40,11 +40,17 @@
             There is disruption due to {{message.Subject}} at {{message.Title}}.
           </mj-text>
         </mj-column>
-        <mj-column width="200px" vertical-align="top" css-class="services">
-          <mj-text align="left" padding-top="5px" padding-left="15px">Service(s) affected:</mj-text>
+      </mj-section>
+
+      <mj-section background-color="#FFFFFF" padding="15px 25px">
+        <mj-column width="100%" vertical-align="top" css-class="services">
+          <mj-text align="left" padding-top="5px" >Service(s) affected:</mj-text>
         </mj-column>
-        <mj-column width="310px" vertical-align="top" css-class="servicelist">
-          <mj-text align="left" padding="0px" font-size="16px">
+      </mj-section>
+
+      <mj-section background-color="#FFFFFF"  padding="0 25px">
+        <mj-column width="100%" vertical-align="top" css-class="servicelist">
+          <mj-text align="left" padding="0 25px" font-size="16px">
             {% for item in message.AffectedServicesNWM %}
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
@@ -106,7 +112,9 @@
             </p>
           </mj-text>
         </mj-column>
+      </mj-section>
 
+      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
         <mj-column width="50%">
           <mj-button
             padding-right="5px"

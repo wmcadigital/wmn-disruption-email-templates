@@ -15,7 +15,7 @@ function handleMJMLErrors(err) {
 const buildMJMLWithDummyData = () => {
   return (
     src(paths.templates.src)
-      .pipe(plugins.mjml(mjmlEngine, { minify: true, validation: 'strict' }))
+      .pipe(plugins.mjml(mjmlEngine, { minify: false, validation: 'strict' }))
       .on('error', handleMJMLErrors)
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...

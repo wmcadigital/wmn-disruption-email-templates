@@ -1,14 +1,29 @@
-<mj-section background-color="#3c1053" full-width="full-width" padding-top="10px" padding-bottom="10px">
-  <mj-column vertical-align="middle" width="100%">
-    <mj-table padding-left="10px" padding-top="0px" padding-right="0px" padding-bottom="0px">
-      <tr>
-        <td style="height: 39px; width: 42px">
-          <img src="/assets/wmn-icon.png" width="42px" height="39px" />
-        </td>
-        <td style="height: 39px">
-          <img class="logotxt" src="/assets/wmn-text.png" height="39px" width="71px" />
-        </td>
-      </tr>
-    </mj-table>
+<mj-section background-color="#3c1053" full-width="full-width" text-align="left">
+  <mj-column width="52px">
+    <mj-image
+      src="/assets/wmn-icon.png"
+      alt="West Midlands Network logo"
+      align="left"
+      width="42px"
+      height="39px"
+      padding-top="5px"
+      padding-left="10px"
+      padding-right="0px"
+      href="https://www.wmca.org.uk"
+    />
+  </mj-column>
+  <mj-column width="71px">
+    <mj-image
+      src="/assets/wmn-text.png"
+      alt="West Midlands Network logo text"
+      height="39px"
+      width="71px"
+      align="left"
+      padding-top="5px"
+      padding-left="0px"
+      padding-right="0px"
+      href="https://www.wmca.org.uk"
+      css-class="logotxt"
+    />
   </mj-column>
 </mj-section>
