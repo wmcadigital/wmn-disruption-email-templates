@@ -1,0 +1,119 @@
+<mjml>
+  <mj-head>
+    <mj-title>WMN Disruption Alerts</mj-title>
+    <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
+    <mj-attributes>
+      <mj-all font-family="Noto Sans, Arial, Helvetica, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#231f20" line-height="24px"></mj-text>
+    </mj-attributes>
+    <mj-style inline="inline"> .link { color: #231f20 !important; text-decoration: underline !important; } </mj-style>
+    <mj-style inline="inline">
+      .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
+    </mj-style>
+    <mj-style>
+      .hover:hover td, .hover:hover a { background-color: #145889 !important; color: #ffffff !important; }
+      .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; } @media (max-width:480px) {
+      .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none !important } .betaLeft {
+      width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important } .footerLogo { width:
+      45% !important } .footerText { width: 55% !important } .policy { width: 100% !important } .privacy { margin-left:
+      10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#f3f2f1">
+    <mj-include path="../partials/header.mjml" />
+
+    <mj-wrapper padding="0px 10px">
+      <mj-include path="../partials/beta.mjml" />
+
+      <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
+        <mj-column width="100%">
+          <mj-text align="left" padding-bottom="20px">Hi {{Name}},</mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="20px"
+            >You have successfully confirmed your subscription to receive automated disruption alerts for the following service(s):
+          </mj-text>
+
+          {% for item in Services %}
+            {% if item.lineId %}
+              {% assign bus = true %}
+            {% endif %}
+            {% if item.Id == '4546' %}
+              {% assign tram = true %}
+            {% endif %}
+          {% endfor %}
+
+          {% if bus %}
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">
+            Bus:
+          </mj-text>
+
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+              {% for item in Services %}
+              {% if item.lineId  %}
+              <li style="padding-bottom: 20px;">{{item.Name}} {{item.IdName}}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </mj-text>
+          {% endif %}
+
+          {% if tram %}
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">
+            Tram:
+          </mj-text>
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+              {% for item in Services %}
+              {% if item.Id == '4546' %}
+              <li style="padding-bottom: 20px;">{{item.Name}} {{item.IdName}}</li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </mj-text>
+          {% endif %}
+
+          {% if Trains %}
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">
+            Train:
+          </mj-text>
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+              {% for item in Trains %}
+              <li style="padding-bottom: 20px;">{{item.From}} - {{item.To}}</li>
+              {% endfor %}
+            </ul>
+          </mj-text>
+          {% endif %}
+          
+
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            You can manage your alert preferences by visiting your disruption alerts dashboard.
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            We recommend bookmarking your disruption alerts dashboard, so you can make changes at any time.
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="0px">
+            If you have signed up to email alerts, you will be able to access your dashboard by clicking on the ‘Manage or unsubscribe from alerts’ link at the bottom of an email alert.
+          </mj-text>
+          <mj-button
+            padding-top="25px"
+            background-color="#1d7ec4"
+            border-radius="5px"
+            color="white"
+            width="100%"
+            line-height="24px"
+            font-weight="bold"
+            href="{{ConfirmLink}}"
+            css-class="hover"
+            height="30px"
+          >
+            Manage your alert preferences
+          </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <mj-include path="../partials/footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>
