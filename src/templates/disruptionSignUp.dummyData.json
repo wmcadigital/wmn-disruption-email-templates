@@ -6,5 +6,9 @@
     { "Id": "69866", "Name": "54a", "IdName": "54a Perry Barr to Newton" },
     { "Id": "26585", "Name": "2", "IdName": "54 Perry Barr to Gorse Farm" },
     { "Id": "4546", "Name": "2", "IdName": "Tram " }
+  ],
+  "Trains": [
+    { "To": "Tipton", "From": "Smethic", "LineIds": ["Hello", "World"] },
+    { "To": "Polaris", "From": "Earth", "LineIds": ["Saturn", "Ganymede", "Polaris"] }
   ]
 }

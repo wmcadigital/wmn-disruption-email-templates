@@ -52,7 +52,9 @@
         "104700",
         "44685"
       ],
-      "InfoId": "7510_TfWM"
+      "InfoId": "7510_TfWM",
+      "Mode": "bus",
+      "Severity": "normal"
     }
   ]
 }
