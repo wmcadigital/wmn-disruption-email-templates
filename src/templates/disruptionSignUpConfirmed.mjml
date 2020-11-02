@@ -104,7 +104,7 @@
             width="100%"
             line-height="24px"
             font-weight="bold"
-            href="{{ConfirmLink}}"
+            href="{{PreferenceCenterLink}}"
             css-class="hover"
             height="30px"
           >
