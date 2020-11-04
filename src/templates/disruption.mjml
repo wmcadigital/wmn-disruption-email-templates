@@ -34,11 +34,19 @@
       </mj-section>
 
       <mj-raw> {% for message in Messages %}</mj-raw>
+      <mj-raw> {% if forloop.first != true %}</mj-raw>
+        <mj-section padding="0 25px" background-color="#FFFFFF">
+          <mj-column width="100%">
+            <mj-divider border-width="1px" border-style="solid" border-color="#979797" />
+          </mj-column>
+        </mj-section>
+      <mj-raw> {% endif %}</mj-raw>
+
 
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left" font-weight="700">
-            There is disruption due to {{message.Subject}}
+            There is a {{message.Severity | downcase }} {{message.Mode}} disruption due to {{message.Subject}}
             <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
               at {{message.Title}}.
             <mj-raw>{% endif %}</mj-raw>
@@ -75,10 +83,19 @@
                 border="0"
                 style="border-collapse: collapse; background: #ffffff"
               >
+
+                {% if message.Severity == 'Major' %}
+                  {% assign color = "#d4351c" %}
+                {% elsif message.Severity == 'Severe' %}
+                  {% assign color = "#000000" %}
+                {% else %}
+                  {% assign color = "#cc6900" %}
+                {% endif %}
+
                 <tr>
                   <td
                     align="center"
-                    bgcolor="#cc6900"
+                    bgcolor="{{color}}"
                     style="
                       padding: 5px 10px;
                       font-size: 14px;
@@ -136,7 +153,7 @@
         </mj-column>
       </mj-section>
 
-      <mj-section padding="0 25px" background-color="#FFFFFF">
+      <mj-section padding="0 25px 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left"
             >This is estimated to continue until {{message.EndDate | date: '%a %e %B %Y at %I:%M %p'}}
@@ -144,21 +161,6 @@
           <mj-divider border-width="1px" border-style="solid" border-color="#979797" />
           <mj-text align="left" font-weight="700" padding-bottom="0px">What happened? </mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="0px"> {{message.Description}} </mj-text>
-        </mj-column>
-      </mj-section>
-
-      <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
-        <mj-column width="100%">
-          <mj-text align="left" padding="0 25px">
-            <p>
-              We won’t send you any more emails about this disruption. To see the most recent updates, please visit our
-              <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
-              <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
-              of the
-              <a class="linkbold" href="https://www.wmnetwork.co.uk/" target="_blank">West Midlands Network</a>
-              website.
-            </p>
-          </mj-text>
         </mj-column>
       </mj-section>
 
@@ -200,6 +202,21 @@
 
       <mj-raw>{% endfor %}</mj-raw>
       <!-- End of message in messages for -->
+
+      <mj-section padding="0 25px 25px" background-color="#FFFFFF">
+        <mj-column width="100%">
+          <mj-text align="left" padding="0 25px">
+            <p>
+              We won’t send you any more emails about {% if Messages.size > 1 %} these disruptions. {% else %} this disruption. {% endif %} To see the most recent updates, please visit our
+              <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
+              <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
+              of the
+              <a class="linkbold" href="https://www.wmnetwork.co.uk/" target="_blank">West Midlands Network</a>
+              website.
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
 
       <mj-include path="../partials/footer.mjml" />
     </mj-wrapper>
