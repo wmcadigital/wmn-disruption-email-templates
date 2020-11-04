@@ -27,26 +27,35 @@
     <mj-wrapper padding="0px 10px">
       <mj-include path="../partials/beta.mjml" />
 
-      <mj-raw> {% for message in Messages %}</mj-raw>
-
       <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left">Hi {{Name}},</mj-text>
         </mj-column>
       </mj-section>
 
+      <mj-raw> {% for message in Messages %}</mj-raw>
+
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left" font-weight="700">
-            There is disruption due to {{message.Subject}} at {{message.Title}}.
+            There is disruption due to {{message.Subject}}
+            <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
+              at {{message.Title}}.
+            <mj-raw>{% endif %}</mj-raw>
           </mj-text>
         </mj-column>
       </mj-section>
 
       <mj-section background-color="#FFFFFF" padding="15px 25px">
         <mj-column width="100%" vertical-align="top" css-class="services">
-          <mj-text align="left" padding-top="5px" >
-          Service(s) affected:</mj-text>
+          <mj-text align="left" padding-top="5px">
+            <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
+            Line(s)
+            <mj-raw>{% else %}</mj-raw>
+            Service(s)
+            <mj-raw>{% endif %}</mj-raw>
+            affected:
+          </mj-text>
         </mj-column>
       </mj-section>
 
