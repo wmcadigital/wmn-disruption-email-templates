@@ -11,6 +11,7 @@
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
     </mj-style>
     <mj-style>
+      .hover a { color: #ffffff !important; }
       .hover:hover td, .hover:hover a { background-color: #145889 !important; color: #ffffff !important; }
       .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; } @media (max-width:480px) {
       .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none !important } .betaLeft {
@@ -44,7 +45,8 @@
 
       <mj-section background-color="#FFFFFF" padding="15px 25px">
         <mj-column width="100%" vertical-align="top" css-class="services">
-          <mj-text align="left" padding-top="5px" >Service(s) affected:</mj-text>
+          <mj-text align="left" padding-top="5px" >
+          Service(s) affected:</mj-text>
         </mj-column>
       </mj-section>
 

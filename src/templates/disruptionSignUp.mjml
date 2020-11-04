@@ -11,6 +11,7 @@
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
     </mj-style>
     <mj-style>
+      .hover a { color: #ffffff !important; }
       .hover:hover td, .hover:hover a { background-color: #145889 !important; color: #ffffff !important; }
       .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; } @media (max-width:480px) {
       .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none !important } .betaLeft {
@@ -82,7 +83,7 @@
             padding-top="25px"
             background-color="#1d7ec4"
             border-radius="5px"
-            color="white !important"
+            color="#fff"
             width="100%"
             line-height="24px"
             font-weight="bold"
