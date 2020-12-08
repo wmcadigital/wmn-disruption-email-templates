@@ -95,6 +95,9 @@
                 <mj-raw>{% else %}</mj-raw>
                 <mj-raw>{% assign color = "#cc6900" %}</mj-raw>
                 <mj-raw>{% endif %}</mj-raw>
+                <mj-raw>{% if item == "mm1" %}</mj-raw>
+                <mj-raw>{% assign tramItem = "MML - Birmingham - Wolverhampton - Birmingham" %}</mj-raw>
+                <mj-raw>{% endif %}</mj-raw>
 
                 <tr>
                   <td
@@ -110,7 +113,11 @@
                       margin-bottom: 5px;
                     "
                   >
+                    <mj-raw>{% if item == "mm1" %}</mj-raw>
+                    MML - Birmingham - Wolverhampton - Birmingham
+                    <mj-raw>{% else %}</mj-raw>
                     {{item}}
+                    <mj-raw>{% endif %}</mj-raw>
                   </td>
                 </tr>
               </table>
