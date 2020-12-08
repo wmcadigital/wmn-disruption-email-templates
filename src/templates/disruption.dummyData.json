@@ -52,9 +52,24 @@
         "104700",
         "44685"
       ],
+      "AffectedServicesTrain": [],
       "InfoId": "7510_TfWM",
       "Mode": "bus",
-      "Severity": "normal"
+      "Severity": "Severe"
+    },
+    {
+      "Title": null,
+      "Subject": "Because of a fault with the signalling system between Birmingham Moor Street and Birmingham Snow Hill all lines are blocked.",
+      "AffectedServices": null,
+      "Description": "Train services running through these stations may be cancelled, delayed or revised. Disruption is expected to last until around 12:00 today (22 November)",
+      "StartDate": "2020-11-19T00:01:00Z",
+      "EndDate": "2021-11-28T05:00:00Z",
+      "AffectedServicesNWM": [],
+      "AffectedServicesIto": [],
+      "AffectedServicesTrain": ["Walsall", "Tipton"],
+      "InfoId": "1054061806",
+      "Mode": "train",
+      "Severity": "Minor"
     }
   ]
 }

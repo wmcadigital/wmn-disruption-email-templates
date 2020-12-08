@@ -11,6 +11,7 @@
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
     </mj-style>
     <mj-style>
+      .hover a { color: #ffffff !important; }
       .hover:hover td, .hover:hover a { background-color: #145889 !important; color: #ffffff !important; }
       .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; } @media (max-width:480px) {
       .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none !important } .betaLeft {
@@ -29,9 +30,8 @@
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left" padding-bottom="20px">Hi {{Name}},</mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="20px"
-            >You have successfully confirmed your subscription to receive automated disruption alerts for the following
-            service(s):
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            You have signed up to receive disruption alerts for your chosen service(s).
           </mj-text>
 
           <mj-raw>{% for item in Services %}</mj-raw>
@@ -72,25 +72,23 @@
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            You can manage your alert preferences by visiting your disruption alerts dashboard.
-          </mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            We recommend bookmarking your disruption alerts dashboard, so you can make changes at any time.
+            Before you can start to receive automated disruption alerts, we need you to confirm your subscription.
           </mj-text>
 
           <mj-button
             padding-top="25px"
             background-color="#1d7ec4"
             border-radius="5px"
-            color="white"
+            color="#fff"
             width="100%"
             line-height="24px"
             font-weight="bold"
-            href="{{PreferenceCenterLink}}"
+            font-size="16px"
+            href="{{ConfirmLink}}"
             css-class="hover"
             height="30px"
           >
-            Manage your alert preferences
+            Confirm your subscription
           </mj-button>
         </mj-column>
       </mj-section>
