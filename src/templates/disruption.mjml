@@ -41,11 +41,20 @@
       </mj-section>
       <mj-raw> {% endif %}</mj-raw>
 
+      <mj-raw>{% assign today_date = "now" | date: "%s" %}</mj-raw>
+      <mj-raw>{% assign start_date = message.StartDate | date: "%s" %}</mj-raw>
+      <mj-raw>{% if today_date > start_date %}</mj-raw>
+      <mj-raw>{% assign is_future_disruption = false %}</mj-raw>
+      <mj-raw>{% else %}</mj-raw>
+      <mj-raw>{% assign is_future_disruption = true %}</mj-raw>
+      <mj-raw>{% endif %}</mj-raw>
+
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left" font-weight="700">
-            There is a {{message.Severity | downcase }} {{message.Mode}} disruption {% if message.Mode != 'train' %}due
-            to{% endif %} {{message.Subject | downcase}}
+            There {% if is_future_disruption == true %} will be {% else %} is {% endif %} a {{message.Severity |
+            downcase }} {{message.Mode}} disruption {% if message.Mode != 'train' %}due to{% endif %} {{message.Subject
+            | downcase}}
             <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
             at {{message.Title}}.
             <mj-raw>{% endif %}</mj-raw>
