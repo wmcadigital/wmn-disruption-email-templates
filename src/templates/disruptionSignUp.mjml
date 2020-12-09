@@ -22,7 +22,9 @@
 
   <mj-body background-color="#f3f2f1">
     <mj-include path="../partials/header.mjml" />
-
+    <mj-wrapper>
+      <mj-section padding="0 10px"></mj-section>
+    </mj-wrapper>
     <mj-wrapper padding="0px 10px">
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
