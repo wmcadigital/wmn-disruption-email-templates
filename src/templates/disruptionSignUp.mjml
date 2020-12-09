@@ -37,7 +37,7 @@
           <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
           <mj-raw>{% if item.Id == '4546' %} {% assign tram = true %} {% endif %}</mj-raw>
           <mj-raw>{% endfor %} {% if bus %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Bus:</mj-text>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Bus</mj-text>
 
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
@@ -49,7 +49,7 @@
             </ul>
           </mj-text>
           <mj-raw>{% endif %} {% if tram %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram:</mj-text>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
               {% for item in Services %} {% if item.Id == '4546' %}
@@ -60,7 +60,7 @@
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-raw>{% if Trains[0].LineIds != null %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Train:</mj-text>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Train</mj-text>
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
               {% for item in Trains[0].LineIds %}
@@ -76,7 +76,7 @@
 
           <mj-button
             padding-top="25px"
-            padding-bottom="25px"
+            padding-bottom="45px"
             background-color="#1d7ec4"
             border-radius="5px"
             color="#fff"
