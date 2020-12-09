@@ -11,13 +11,12 @@
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
     </mj-style>
     <mj-style>
-      .hover a { color: #ffffff !important; }
-      .hover:hover td, .hover:hover a { background-color: #145889 !important; color: #ffffff !important; }
-      .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; } @media (max-width:480px) {
-      .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none !important } .betaLeft {
-      width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important } .footerLogo { width:
-      45% !important } .footerText { width: 55% !important } .policy { width: 100% !important } .privacy { margin-left:
-      10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
+      .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
+      color: #ffffff !important; } .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; }
+      @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
+      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important
+      } .footerLogo { width: 45% !important } .footerText { width: 55% !important } .policy { width: 100% !important }
+      .privacy { margin-left: 10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
     </mj-style>
   </mj-head>
 
@@ -25,13 +24,11 @@
     <mj-include path="../partials/header.mjml" />
 
     <mj-wrapper padding="0px 10px">
-      <mj-include path="../partials/beta.mjml" />
-
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left" padding-bottom="20px">Hi {{Name}},</mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            You have signed up to receive disruption alerts for your chosen service(s).
+            You have signed up to receive disruptions alerts for your chosen service(s):
           </mj-text>
 
           <mj-raw>{% for item in Services %}</mj-raw>
@@ -72,11 +69,12 @@
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            Before you can start to receive automated disruption alerts, we need you to confirm your subscription.
+            You need to confirm your subscription before you start receiving alerts.
           </mj-text>
 
           <mj-button
             padding-top="25px"
+            padding-bottom="25px"
             background-color="#1d7ec4"
             border-radius="5px"
             color="#fff"
@@ -90,6 +88,8 @@
           >
             Confirm your subscription
           </mj-button>
+
+          <mj-include path="../partials/feedback.mjml" />
         </mj-column>
       </mj-section>
 
