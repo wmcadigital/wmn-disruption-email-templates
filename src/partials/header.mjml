@@ -1,4 +1,4 @@
-<mj-section background-color="#3c1053" full-width="full-width" text-align="left">
+<mj-section background-color="#3c1053" full-width="full-width" text-align="left" padding="10px 0">
   <mj-column width="52px">
     <mj-image
       src="/assets/wmn-icon.png"
