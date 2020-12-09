@@ -193,12 +193,15 @@
           <mj-text align="left" padding="0 25px">
             <p>
               We won’t send you any more emails about {% if Messages.size > 1 %} these disruptions. {% else %} this
-              disruption. {% endif %} To see the most recent updates, please visit our
+              disruption. {% endif %}
+            </p>
+          </mj-text>
+          <mj-text align="left" padding="0 25px">
+            <p>
+              To see the most recent updates, please visit our
               <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
               <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
-              of the
-              <a class="linkbold" href="https://www.wmnetwork.co.uk/" target="_blank">West Midlands Network</a>
-              website.
+              of the West Midlands Network website.
             </p>
           </mj-text>
         </mj-column>

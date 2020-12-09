@@ -1,0 +1,21 @@
+<mj-text align="left" padding-top="0px" padding-bottom="5px">
+  <strong>Feedback</strong>
+</mj-text>
+<mj-text align="left" padding-top="0px" padding-bottom="20px">
+  You can
+  <a
+    class="link"
+    href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUOE1INTBMOEdXMFJSQTI4MUpRWlJQMEZWTi4u"
+    >give feedback to help improve this process.</a
+  >
+</mj-text>
+<mj-raw>{% if MobileNumber %}</mj-raw>
+<mj-text align="left" padding-top="0px" padding-bottom="20px">
+  You can also
+  <a
+    class="link"
+    href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUOE1INTBMOEdXMFJSQTI4MUpRWlJQMEZWTi4u"
+    >give feedback about text message alerts at any time.</a
+  >
+</mj-text>
+<mj-raw>{% endif %}</mj-raw>

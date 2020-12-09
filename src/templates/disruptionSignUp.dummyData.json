@@ -1,9 +1,12 @@
 {
   "Name": "Joe Bloggs",
-  "ConfirmLink": "http://google.com/#q=This+will+be+replaced+with+the+users+actual+confirm+link",
-  "PreferenceCenterLink": "http://google.com/#q=This+will+be+replaced+with+the+users+actual+dashboard+link",
+  "MobileNumber": "+447588299844",
+  "MobileActive": true,
+  "NewUser": false,
+  "EmailDisabled": true,
+  "ConfirmLink": "http://google.com/#qconfirm+link",
+  "PreferenceCenterLink": "http://googl+dashboard+link",
   "Services": [
-    { "Id": "69866", "Name": "54a", "IdName": "Perry Barr to Newton" },
     { "Id": "26585", "Name": "7a", "IdName": "Walsall to Castlefort" },
     { "Id": "4546", "Name": "mm1", "IdName": "Birmingham - Wolverhampton - Birmingham" }
   ],

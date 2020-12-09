@@ -22,61 +22,21 @@
 
   <mj-body background-color="#f3f2f1">
     <mj-include path="../partials/header.mjml" />
+
     <mj-wrapper>
       <mj-section padding="0 10px"></mj-section>
     </mj-wrapper>
+
     <mj-wrapper padding="0px 10px">
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left" padding-bottom="20px">Hi {{Name}},</mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            You have signed up to receive disruptions alerts for your chosen service(s):
+            Here is the link you requested to manage your disruption alerts:
           </mj-text>
-
-          <mj-raw>{% for item in Services %}</mj-raw>
-          <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
-          <mj-raw>{% if item.Id == '4546' %} {% assign tram = true %} {% endif %}</mj-raw>
-          <mj-raw>{% endfor %} {% if bus %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Bus</mj-text>
-
-          <mj-text padding-top="0px" padding-bottom="10px">
-            <ul style="list-style-type: none; padding: 0; margin: 0">
-              <mj-raw>{% for item in Services %}</mj-raw>
-              <mj-raw>{% if item.Id != '4546' %}</mj-raw>
-              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-              <mj-raw>{% endif %}</mj-raw>
-              <mj-raw>{% endfor %}</mj-raw>
-            </ul>
-          </mj-text>
-          <mj-raw>{% endif %} {% if tram %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
-          <mj-text padding-top="0px" padding-bottom="10px">
-            <ul style="list-style-type: none; padding: 0; margin: 0">
-              {% for item in Services %} {% if item.Id == '4546' %}
-              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-              {% endif %} {% endfor %}
-            </ul>
-          </mj-text>
-          <mj-raw>{% endif %}</mj-raw>
-
-          <mj-raw>{% if Trains[0].LineIds != null %}</mj-raw>
-          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Train</mj-text>
-          <mj-text padding-top="0px" padding-bottom="10px">
-            <ul style="list-style-type: none; padding: 0; margin: 0">
-              {% for item in Trains[0].LineIds %}
-              <li style="padding-bottom: 20px">{{item}}</li>
-              {% endfor %}
-            </ul>
-          </mj-text>
-          <mj-raw>{% endif %}</mj-raw>
-
-          <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            You need to confirm your subscription before you start receiving alerts.
-          </mj-text>
-
           <mj-button
-            padding-top="25px"
-            padding-bottom="45px"
+            padding-top="0px"
+            padding-bottom="25px"
             background-color="#1d7ec4"
             border-radius="5px"
             color="#fff"
@@ -84,13 +44,18 @@
             line-height="24px"
             font-weight="bold"
             font-size="16px"
-            href="{{ConfirmLink}}"
+            href="{{PreferenceCenterLink}}"
             css-class="hover"
             height="30px"
           >
-            Confirm your subscription
+            Manage my disruption alerts
           </mj-button>
-
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            The link is personal to you. Don't share it with anyone.
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="40px">
+            You can bookmark the link to manage your disruption alerts in future.
+          </mj-text>
           <mj-include path="../partials/feedback.mjml" />
         </mj-column>
       </mj-section>
