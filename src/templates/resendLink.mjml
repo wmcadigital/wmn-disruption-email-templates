@@ -24,27 +24,15 @@
     <mj-include path="../partials/header.mjml" />
 
     <mj-wrapper padding="0px 10px">
-      <mj-include path="../partials/beta.mjml" />
-
       <mj-section padding="25px" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left" padding-bottom="20px">Hi {{Name}},</mj-text>
           <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            Here is the link to manage your disruption alerts which you requested.
+            Here is the link you requested to manage your disruption alerts:
           </mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            We recommend bookmarking this page, so you can make changes to your subscription at any time.
-          </mj-text>
-          <mj-text align="left" padding-top="0px" padding-bottom="20px">
-            <a
-              class="link"
-              href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUOE1INTBMOEdXMFJSQTI4MUpRWlJQMEZWTi4u"
-              >You can give feedback about the text messages alerts at any time.</a
-            >
-          </mj-text>
-
           <mj-button
-            padding-top="25px"
+            padding-top="0px"
+            padding-bottom="25px"
             background-color="#1d7ec4"
             border-radius="5px"
             color="#fff"
@@ -56,8 +44,35 @@
             css-class="hover"
             height="30px"
           >
-            Manage your disruption alerts
+            Manage my disruption alerts
           </mj-button>
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            The link is personal to you. Don't share it with anyone.
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="40px">
+            You can bookmark the link to manage your disruption alerts in future.
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="5px">
+            <strong>Feedback</strong>
+          </mj-text>
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            You can
+            <a
+              class="link"
+              href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUOE1INTBMOEdXMFJSQTI4MUpRWlJQMEZWTi4u"
+              >give feedback to help improve this process.</a
+            >
+          </mj-text>
+          <mj-raw>{% if MobileNumber %}</mj-raw>
+          <mj-text align="left" padding-top="0px" padding-bottom="20px">
+            You can also
+            <a
+              class="link"
+              href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUOE1INTBMOEdXMFJSQTI4MUpRWlJQMEZWTi4u"
+              >give feedback about text message alerts at any time.</a
+            >
+          </mj-text>
+          <mj-raw>{% endif %}</mj-raw>
         </mj-column>
       </mj-section>
 
