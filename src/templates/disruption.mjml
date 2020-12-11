@@ -52,9 +52,9 @@
       <mj-section padding="0 25px" background-color="#FFFFFF">
         <mj-column width="100%">
           <mj-text align="left" font-weight="700">
-            There {% if is_future_disruption == true %} will be {% else %} is {% endif %} a {{message.Severity |
-            downcase }} {{message.Mode}} disruption {% if message.Mode != 'train' %}due to{% endif %} {{message.Subject
-            | downcase}}
+            There {% if is_future_disruption == true %} will be {% else %} is {% endif %} a
+            {{message.Severity|downcase}} {{message.Mode}} disruption {% if message.Mode != 'train' %}due to{% endif %}
+            {{message.Subject|downcase}}
             <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
             at {{message.Title}}.
             <mj-raw>{% endif %}</mj-raw>
@@ -151,21 +151,63 @@
 
       <mj-section padding="0 25px 25px 25px" background-color="#FFFFFF">
         <mj-column width="50%">
-          <mj-button
-            padding-right="5px"
-            padding-top="0px"
-            background-color="#ffffff"
-            border-radius="5px"
-            border="1px solid #3c1053"
-            color="#3c1053"
-            width="100%"
-            line-height="24px"
-            font-weight="bold"
-            href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
-            css-class="hoversec"
-          >
-            View disruption on a map
-          </mj-button>
+          <mj-raw>
+            <tr>
+              <td
+                align="center"
+                vertical-align="middle"
+                class="hoversec"
+                style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-right: 5px; word-break: break-word"
+              >
+                <table
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  role="presentation"
+                  style="border-collapse: separate; width: 100%; line-height: 100%"
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      bgcolor="#ffffff"
+                      role="presentation"
+                      style="
+                        border: 1px solid #3c1053;
+                        border-radius: 5px;
+                        cursor: auto;
+                        mso-padding-alt: 10px 25px;
+                        background: #ffffff;
+                      "
+                      valign="middle"
+                    >
+                      <a
+                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem=7510_TfWM"
+                        style="
+                          display: inline-block;
+                          background: #ffffff;
+                          color: #3c1053;
+                          font-family: Noto Sans, Arial, Helvetica, sans-serif;
+                          font-size: 13px;
+                          font-weight: bold;
+                          line-height: 24px;
+                          margin: 0;
+                          text-decoration: none;
+                          text-transform: none;
+                          padding: 10px 25px;
+                          mso-padding-alt: 0px;
+                          border-radius: 5px;
+                        "
+                        target="_blank"
+                        cm_dontconvertlink
+                      >
+                        View disruption on a map
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </mj-raw>
         </mj-column>
         <mj-column width="50%">
           <mj-button

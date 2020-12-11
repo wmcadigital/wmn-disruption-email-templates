@@ -39,6 +39,7 @@ const buildMJMLWithDummyData = () => {
           ext: '.mjml'
         })
       )
+      .on('error', handleMJMLErrors)
       // Render MJML templates
       .pipe(plugins.mjml(mjmlEngine, { beautify: true, validation: 'strict' }))
       .on('error', handleMJMLErrors)
@@ -48,6 +49,7 @@ const buildMJMLWithDummyData = () => {
           ext: '.html'
         })
       )
+      .pipe(plugins.formatHtml())
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...
       .pipe(plugins.html2txt({ ignoreImage: true, wordwrap: false }))

@@ -17,6 +17,7 @@ const buildMJMLWithDummyData = () => {
     src(paths.templates.src)
       .pipe(plugins.mjml(mjmlEngine, { minify: false, validation: 'strict' }))
       .on('error', handleMJMLErrors)
+      .pipe(plugins.htmlBeautify())
       .pipe(dest(paths.templates.output))
       // After html templates are created, generate some txt ones...
       .pipe(plugins.html2txt({ ignoreImage: true, wordwrap: false }))
