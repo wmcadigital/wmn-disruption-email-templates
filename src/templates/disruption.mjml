@@ -181,7 +181,7 @@
                       valign="middle"
                     >
                       <a
-                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem=7510_TfWM"
+                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
                         style="
                           display: inline-block;
                           background: #ffffff;
