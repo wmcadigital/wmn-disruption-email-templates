@@ -13,5 +13,8 @@
   "Trains": [
     { "To": "Birmingham New Street", "From": "Aston", "LineIds": ["Cross City", "Walsall", "Snow Hill"] },
     { "To": "Birmingham Snow Hill", "From": "Birmingham Snow Hill", "LineIds": [] }
+  ],
+  "TramLines": [
+    { "To":"Birmingham New Street", "From": "St Pauls" }
   ]
 }
