@@ -54,7 +54,9 @@
             <ul style="list-style-type: none; padding: 0; margin: 0">
               {% for item in Services %} {% if item.Id == '4546' %}
               <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-              {% endif %} {% endfor %} {% for item in TramLines %}
+              <mj-raw>{% endif %}</mj-raw>
+              <mj-raw>{% endfor %}</mj-raw>
+              <mj-raw>{% for item in TramLines %}</mj-raw>
               <li style="padding-bottom: 20px">{{item.From}} to {{item.To}}</li>
               {% endfor %}
             </ul>
