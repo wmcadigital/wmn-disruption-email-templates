@@ -9,6 +9,8 @@
     <mj-style inline="inline"> .link { color: #231f20 !important; text-decoration: underline !important; } </mj-style>
     <mj-style inline="inline">
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
+      .preheader { display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px;
+      opacity: 0; overflow: hidden; }
     </mj-style>
     <mj-style>
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
@@ -21,6 +23,19 @@
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
+    <mj-section css-class="preheader" full-width="full-width" text-align="left">
+      <mj-column>
+        <mj-raw>{% if Services.size > 1 %}</mj-raw>
+        <mj-raw>{% assign is_plural = true %}</mj-raw>
+        <mj-raw>{% else %}</mj-raw>
+        <mj-raw>{% assign is_plural = false %}</mj-raw>
+        <mj-raw>{% endif %}</mj-raw>
+        <mj-text
+          >You have signed up to receive disruptions alerts for {{Services.size}} service{% if is_plural == true %}s{%
+          endif %}.
+        </mj-text>
+      </mj-column>
+    </mj-section>
     <mj-include path="../partials/header.mjml" />
     <mj-wrapper>
       <mj-section padding="0 10px"></mj-section>
@@ -34,36 +49,36 @@
           </mj-text>
 
           <mj-raw>{% for item in Services %}</mj-raw>
-            <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
-            <mj-raw>{% if item.Id == '4546' %} {% assign fullTramLine = true %} {% endif %}</mj-raw>
+          <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
+          <mj-raw>{% if item.Id == '4546' %} {% assign fullTramLine = true %} {% endif %}</mj-raw>
           <mj-raw>{% endfor %} {% if bus %}</mj-raw>
           <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Bus</mj-text>
 
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
               <mj-raw>{% for item in Services %}</mj-raw>
-                <mj-raw>{% if item.Id != '4546' %}</mj-raw>
-                  <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-                <mj-raw>{% endif %}</mj-raw>
+              <mj-raw>{% if item.Id != '4546' %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
+              <mj-raw>{% endif %}</mj-raw>
               <mj-raw>{% endfor %}</mj-raw>
             </ul>
           </mj-text>
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-raw>{% if fullTramLine or TramLines.size > 0 %}</mj-raw>
-            <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
-            <mj-text padding-top="0px" padding-bottom="10px">
-              <ul style="list-style-type: none; padding: 0; margin: 0">
-                <mj-raw>{% for item in Services %}</mj-raw>
-                  <mj-raw>{% if item.Id == '4546' %}</mj-raw>
-                    <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-                  <mj-raw>{% endif %}</mj-raw>
-                <mj-raw>{% endfor %}</mj-raw>
-                <mj-raw>{% for item in TramLines %}</mj-raw>
-                  <li style="padding-bottom: 20px">{{item.From}} to {{item.To}}</li>
-                <mj-raw>{% endfor %}</mj-raw>
-              </ul>
-            </mj-text>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0">
+              <mj-raw>{% for item in Services %}</mj-raw>
+              <mj-raw>{% if item.Id == '4546' %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
+              <mj-raw>{% endif %}</mj-raw>
+              <mj-raw>{% endfor %}</mj-raw>
+              <mj-raw>{% for item in TramLines %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.From}} to {{item.To}}</li>
+              <mj-raw>{% endfor %}</mj-raw>
+            </ul>
+          </mj-text>
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-raw>{% if Trains[0].LineIds != null %}</mj-raw>

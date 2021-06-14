@@ -1,6 +1,6 @@
 <mjml>
   <mj-head>
-    <mj-title>WMN Disruption Alerts</mj-title>
+    <mj-title>TfWM Disruption Alerts</mj-title>
     <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
     <mj-attributes>
       <mj-all font-family="Noto Sans, Arial, Helvetica, sans-serif"></mj-all>
@@ -9,6 +9,8 @@
     <mj-style inline="inline"> .link { color: #231f20 !important; text-decoration: underline !important; } </mj-style>
     <mj-style inline="inline">
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
+      .preheader { display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px;
+      opacity: 0; overflow: hidden; }
     </mj-style>
     <mj-style>
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
@@ -21,8 +23,22 @@
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
-    <mj-include path="../partials/header.mjml" />
+    <mj-section css-class="preheader" full-width="full-width" text-align="left">
+      <mj-column>
+        <mj-raw>{% if Messages.size > 1 %}</mj-raw>
+        <mj-raw>{% assign is_plural = true %}</mj-raw>
+        <mj-raw>{% else %}</mj-raw>
+        <mj-raw>{% assign is_plural = false %}</mj-raw>
+        <mj-raw>{% endif %}</mj-raw>
+        <mj-raw
+          >There {% if is_plural == true %} are {% else %} is {% endif %} {{Messages.size}} new disruption update{% if
+          is_plural == true %}s{% endif %} which will affect your selected transport service{% if is_plural == true
+          %}s{% endif %}.
+        </mj-raw>
+      </mj-column>
+    </mj-section>
 
+    <mj-include path="../partials/header.mjml" />
     <mj-wrapper padding="0px 10px">
       <mj-include path="../partials/beta.mjml" />
 
@@ -243,7 +259,7 @@
               To see the most recent updates, please visit our
               <a href="https://twitter.com/TransportForWM" class="linkbold">Twitter (@TransportForWM)</a> or visit the
               <a class="linkbold" href="https://disruptions.tfwm.org.uk" target="_blank">Disruptions section</a>
-              of the West Midlands Network website.
+              of the Transport for West Midlands website.
             </p>
           </mj-text>
         </mj-column>
