@@ -2,27 +2,27 @@
   <mj-column width="52px">
     <mj-image
       src="/assets/tfwm-icon.png"
-      alt="Transport for West Midlands logo"
+      alt=""
       align="left"
       width="42px"
       height="40px"
       padding-top="5px"
       padding-left="10px"
       padding-right="0px"
-      href="https://www.wmca.org.uk"
+      href="https://www.tfwm.org.uk"
     />
   </mj-column>
   <mj-column width="111px">
     <mj-image
       src="/assets/tfwm-text.png"
-      alt="Transport for West Midlands logo text"
+      alt="Transport for West Midlands"
       height="40px"
       width="111px"
       align="left"
       padding-top="5px"
       padding-left="0px"
       padding-right="0px"
-      href="https://www.wmca.org.uk"
+      href="https://www.tfwm.org.uk"
       css-class="logotxt"
     />
   </mj-column>
