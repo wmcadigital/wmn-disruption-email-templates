@@ -181,7 +181,7 @@
                       valign="middle"
                     >
                       <a
-                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
+                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
                         style="
                           display: inline-block;
                           background: #ffffff;
@@ -241,8 +241,8 @@
           <mj-text align="left" padding="0 25px">
             <p>
               To see the most recent updates, please visit our
-              <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
-              <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
+              <a href="https://twitter.com/TransportForWM" class="linkbold">Twitter (@TransportForWM)</a> or visit the
+              <a class="linkbold" href="https://disruptions.tfwm.org.uk" target="_blank">Disruptions section</a>
               of the West Midlands Network website.
             </p>
           </mj-text>
