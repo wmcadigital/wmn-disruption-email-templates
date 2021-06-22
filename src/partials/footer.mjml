@@ -1,11 +1,9 @@
 <mj-section full-width="full-width" border-bottom="1px #979797 solid">
-  <mj-group>
-    <mj-column padding-right="5px" css-class="footerText">
-      <mj-text align="center" font-size="14px" padding="0px"
-        >You received this email because you signed up for disruption alerts.</mj-text
-      >
-    </mj-column>
-  </mj-group>
+  <mj-column padding-right="5px" css-class="footerText">
+    <mj-text align="center" font-size="14px" padding="0px"
+      >You received this email because you signed up for disruption alerts.</mj-text
+    >
+  </mj-column>
 </mj-section>
 
 <mj-section full-width="full-width">
@@ -35,7 +33,7 @@
 
   <mj-column vertical-align="top" width="60%" css-class="preferences">
     <mj-text align="right" font-size="16px" padding="0px">
-      <ul style="list-style-type: none; font-size: 16px; margin: 0px; padding: 0px">
+      <ul class="footerlist" style="list-style-type: none; font-size: 16px; margin: 0px; padding: 0px">
         <li>
           {% if PreferenceCenterLink %}
           <a

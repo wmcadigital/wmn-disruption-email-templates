@@ -16,9 +16,12 @@
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
       color: #ffffff !important; } .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; }
       @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
-      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important
-      } .footerLogo { width: 45% !important } .footerText { width: 55% !important } .policy { width: 100% !important }
-      .privacy { margin-left: 10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
+      !important } .hover { padding-left: 25px !important; padding-right: 25px !important; } .hoversec { padding-left:
+      25px !important; padding-right: 25px !important; } .betaLeft { width: 15% !important; padding-top: 10px
+      !important; } .betaRight { width: 85% !important } .footerLogo { width: 45% !important } .footerText { width: 55%
+      !important } .policy { width: 100% !important } .privacy { margin-left: 10px !important } .footerlist {
+      padding-left: 20px !important; } .footerlist li { float: left !important; display: block !important; width: 100%
+      !important; text-align: left !important; } }
     </mj-style>
   </mj-head>
 
@@ -39,7 +42,7 @@
     </mj-section>
 
     <mj-include path="../partials/header.mjml" />
-    <mj-wrapper padding="0px 10px">
+    <mj-wrapper padding="0px">
       <mj-include path="../partials/beta.mjml" />
 
       <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
