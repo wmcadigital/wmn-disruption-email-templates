@@ -16,5 +16,8 @@
   ],
   "TramLines": [
     { "To":"Birmingham New Street", "From": "St Pauls" }
+  ],
+  "RoadLines": [
+    { "name":"Area name", "lat": 52.47780000000006, "lon": -1.8925299999999652, "distance": 8046.7 }
   ]
 }
