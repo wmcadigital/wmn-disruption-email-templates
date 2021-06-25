@@ -67,6 +67,8 @@
           <mj-text align="left" padding-top="5px">
             <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
             Line(s)
+            <mj-raw>{% elsif message.Mode == 'road' %}</mj-raw>
+            Area
             <mj-raw>{% else %}</mj-raw>
             Service(s)
             <mj-raw>{% endif %}</mj-raw>
@@ -80,11 +82,28 @@
           <mj-text align="left" padding="0 25px" font-size="16px">
             <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
             <mj-raw>{% assign affectedItems = message.AffectedServicesTrain %}</mj-raw>
+            <mj-raw>{% elsif message.Mode == 'road' %}</mj-raw>
+            <mj-raw>{% assign affectedArea = message.AffectedServiceRoad %}</mj-raw>
             <mj-raw>{% else %}</mj-raw>
             <mj-raw>{% assign affectedItems = message.AffectedServicesNWM %}</mj-raw>
             <mj-raw>{% endif %}</mj-raw>
 
-            <mj-raw>{% if affectedItems.size != empty %}</mj-raw>
+            <mj-raw>{% if affectedItems.size != empty or affectedArea %}</mj-raw>
+            <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
+
+            <mj-raw>{% assign distance = affectedArea.Distance | divided_by:1609.34 | round %}</mj-raw>
+            <mj-raw>{% if distance > 1 %}</mj-raw>
+            <mj-raw>{% assign mileString = 'miles' %}</mj-raw>
+            <mj-raw>{% else %}</mj-raw>
+            <mj-raw>{% assign mileString = 'mile' %}</mj-raw>
+            <mj-raw>{% endif %}</mj-raw>
+            <mj-text padding-top="0px" padding-bottom="10px">
+              <ul style="list-style-type: none; padding: 0; margin: 0">
+                <li style="padding-bottom: 20px">{{affectedArea.Name}} + {{ distance }} {{ mileString }}</li>
+              </ul>
+            </mj-text>
+
+            <mj-raw>{% else %}</mj-raw>
             <mj-raw>{% for item in affectedItems %}</mj-raw>
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
@@ -134,6 +153,7 @@
             <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
             <mj-raw>{% endfor %}</mj-raw>
             <mj-raw>{% endif %}</mj-raw>
+            <mj-raw>{% endif %}</mj-raw>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -180,8 +200,14 @@
                       "
                       valign="middle"
                     >
+                      <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
+                      {% capture areaParams %}&mode=roads&address={{ affectedArea.Name }}&lat={{ affectedArea.Lat
+                      }}&lon={{ affectedArea.Lon }}&radius={{ distance }}{% endcapture %}
+                      <mj-raw>{% else %}</mj-raw>
+                      {% assign areaParams = "" %}
+                      <mj-raw>{% endif %}</mj-raw>
                       <a
-                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
+                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{areaParams}}"
                         style="
                           display: inline-block;
                           background: #ffffff;

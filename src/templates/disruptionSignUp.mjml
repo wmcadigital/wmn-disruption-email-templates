@@ -34,36 +34,36 @@
           </mj-text>
 
           <mj-raw>{% for item in Services %}</mj-raw>
-            <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
-            <mj-raw>{% if item.Id == '4546' %} {% assign fullTramLine = true %} {% endif %}</mj-raw>
+          <mj-raw>{% if item.Id != '4546' %} {% assign bus = true %} {% endif %}</mj-raw>
+          <mj-raw>{% if item.Id == '4546' %} {% assign fullTramLine = true %} {% endif %}</mj-raw>
           <mj-raw>{% endfor %} {% if bus %}</mj-raw>
           <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Bus</mj-text>
 
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
               <mj-raw>{% for item in Services %}</mj-raw>
-                <mj-raw>{% if item.Id != '4546' %}</mj-raw>
-                  <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-                <mj-raw>{% endif %}</mj-raw>
+              <mj-raw>{% if item.Id != '4546' %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
+              <mj-raw>{% endif %}</mj-raw>
               <mj-raw>{% endfor %}</mj-raw>
             </ul>
           </mj-text>
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-raw>{% if fullTramLine or TramLines.size > 0 %}</mj-raw>
-            <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
-            <mj-text padding-top="0px" padding-bottom="10px">
-              <ul style="list-style-type: none; padding: 0; margin: 0">
-                <mj-raw>{% for item in Services %}</mj-raw>
-                  <mj-raw>{% if item.Id == '4546' %}</mj-raw>
-                    <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
-                  <mj-raw>{% endif %}</mj-raw>
-                <mj-raw>{% endfor %}</mj-raw>
-                <mj-raw>{% for item in TramLines %}</mj-raw>
-                  <li style="padding-bottom: 20px">{{item.From}} to {{item.To}}</li>
-                <mj-raw>{% endfor %}</mj-raw>
-              </ul>
-            </mj-text>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Tram</mj-text>
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0">
+              <mj-raw>{% for item in Services %}</mj-raw>
+              <mj-raw>{% if item.Id == '4546' %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.Name | upcase}} {{item.IdName}}</li>
+              <mj-raw>{% endif %}</mj-raw>
+              <mj-raw>{% endfor %}</mj-raw>
+              <mj-raw>{% for item in TramLines %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.From}} to {{item.To}}</li>
+              <mj-raw>{% endfor %}</mj-raw>
+            </ul>
+          </mj-text>
           <mj-raw>{% endif %}</mj-raw>
 
           <mj-raw>{% if Trains[0].LineIds != null %}</mj-raw>
@@ -72,6 +72,23 @@
             <ul style="list-style-type: none; padding: 0; margin: 0">
               {% for item in Trains[0].LineIds %}
               <li style="padding-bottom: 20px">{{item}}</li>
+              {% endfor %}
+            </ul>
+          </mj-text>
+          <mj-raw>{% endif %}</mj-raw>
+
+          <mj-raw>{% if RoadLines.size > 0 %}</mj-raw>
+          <mj-text padding-top="0px" padding-bottom="20px" font-weight="bold">Roads</mj-text>
+          <mj-text padding-top="0px" padding-bottom="10px">
+            <ul style="list-style-type: none; padding: 0; margin: 0">
+              {% for item in RoadLines %}
+              <mj-raw>{% assign distance = item.distance | divided_by:1609.34 | round %}</mj-raw>
+              <mj-raw>{% if distance > 1 %}</mj-raw>
+              <mj-raw>{% assign mileString = 'miles' %}</mj-raw>
+              <mj-raw>{% else %}</mj-raw>
+              <mj-raw>{% assign mileString = 'mile' %}</mj-raw>
+              <mj-raw>{% endif %}</mj-raw>
+              <li style="padding-bottom: 20px">{{item.name}} + {{ distance }} {{ mileString }}</li>
               {% endfor %}
             </ul>
           </mj-text>
