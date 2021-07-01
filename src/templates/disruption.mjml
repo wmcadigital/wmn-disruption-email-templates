@@ -1,4 +1,4 @@
-<mjml>
+<mjml lang="en">
   <mj-head>
     <mj-title>TfWM Disruption Alerts</mj-title>
     <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
@@ -35,8 +35,8 @@
         <mj-raw>{% endif %}</mj-raw>
         <mj-raw
           >There {% if is_plural == true %} are {% else %} is {% endif %} {{Messages.size}} new disruption update{% if
-          is_plural == true %}s{% endif %} which will affect your selected transport service{% if is_plural == true
-          %}s{% endif %}.
+          is_plural == true %}s{% endif %} which will affect your selected West Midlands transport service{% if
+          is_plural == true %}s{% endif %}.
         </mj-raw>
       </mj-column>
     </mj-section>
