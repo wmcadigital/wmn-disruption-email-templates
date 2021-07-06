@@ -201,13 +201,13 @@
                       valign="middle"
                     >
                       <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
-                      {% capture areaParams %}&mode=roads&address={{ affectedArea.Name }}&lat={{ affectedArea.Lat
+                      {% capture modeParams %}&mode=roads&address={{ affectedArea.Name }}&lat={{ affectedArea.Lat
                       }}&lon={{ affectedArea.Lon }}&radius={{ distance }}{% endcapture %}
                       <mj-raw>{% else %}</mj-raw>
-                      {% assign areaParams = "" %}
+                      {% capture modeParams %}&mode={{ message.Mode }}{% endcapture %}
                       <mj-raw>{% endif %}</mj-raw>
                       <a
-                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{areaParams}}"
+                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{modeParams}}"
                         style="
                           display: inline-block;
                           background: #ffffff;
