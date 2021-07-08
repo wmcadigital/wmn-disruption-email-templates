@@ -34,9 +34,11 @@
         <mj-raw>{% assign is_plural = false %}</mj-raw>
         <mj-raw>{% endif %}</mj-raw>
         <mj-text>
-          {% if is_plural == true %} There are {{Messages.size}} new disruption updates which will affect your selected
-          Tfwm transport service(s). {% else %} There is {{Messages.size}} new disruption update which will affect your
-          selected Tfwm transport service(s). {% endif %}
+          <!-- htmlmin:ignore -->{% if is_plural == true %}<!-- htmlmin:ignore -->
+          There are {{Messages.size}} new disruption updates which will affect your selected Tfwm transport service(s).
+          <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+          There is {{Messages.size}} new disruption update which will affect your selected Tfwm transport service(s).
+          <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
         </mj-text>
       </mj-column>
     </mj-section>
@@ -74,9 +76,9 @@
             There {% if is_future_disruption == true %} will be {% else %} is {% endif %} a
             {{message.Severity|downcase}} {{message.Mode}} disruption {% if message.Mode != 'train' %}due to{% endif %}
             {{message.Subject|downcase}}
-            <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'bus' %}<!-- htmlmin:ignore -->
             at {{message.Title}}.
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
           </mj-text>
         </mj-column>
       </mj-section>
@@ -84,11 +86,11 @@
       <mj-section background-color="#FFFFFF" padding="15px 25px">
         <mj-column width="100%" vertical-align="top" css-class="services">
           <mj-text align="left" padding-top="5px">
-            <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
             Line(s)
-            <mj-raw>{% else %}</mj-raw>
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             Service(s)
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
             affected:
           </mj-text>
         </mj-column>
@@ -97,14 +99,14 @@
       <mj-section background-color="#FFFFFF" padding="0 25px">
         <mj-column width="100%" vertical-align="top" css-class="servicelist">
           <mj-text align="left" padding="0 25px" font-size="16px">
-            <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
-            <mj-raw>{% assign affectedItems = message.AffectedServicesTrain %}</mj-raw>
-            <mj-raw>{% else %}</mj-raw>
-            <mj-raw>{% assign affectedItems = message.AffectedServicesNWM %}</mj-raw>
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesTrain %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesNWM %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
 
-            <mj-raw>{% if affectedItems.size != empty %}</mj-raw>
-            <mj-raw>{% for item in affectedItems %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if affectedItems.size != empty %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% for item in affectedItems %}<!-- htmlmin:ignore -->
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
               <table
@@ -116,16 +118,16 @@
                 border="0"
                 style="border-collapse: collapse; background: #ffffff"
               >
-                <mj-raw>{% if message.Severity == 'Major' %}</mj-raw>
-                <mj-raw>{% assign color = "#d4351c" %}</mj-raw>
-                <mj-raw>{% elsif message.Severity == 'Severe' %}</mj-raw>
-                <mj-raw>{% assign color = "#000000" %}</mj-raw>
-                <mj-raw>{% else %}</mj-raw>
-                <mj-raw>{% assign color = "#cc6900" %}</mj-raw>
-                <mj-raw>{% endif %}</mj-raw>
-                <mj-raw>{% if item == "mm1" %}</mj-raw>
-                <mj-raw>{% assign tramItem = "MML - Birmingham - Wolverhampton - Birmingham" %}</mj-raw>
-                <mj-raw>{% endif %}</mj-raw>
+                <!-- htmlmin:ignore -->{% if message.Severity == 'Major' %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#d4351c" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% elsif message.Severity == 'Severe' %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#000000" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#cc6900" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% if item == "mm1" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign tramItem = "MML - Birmingham - Wolverhampton - Birmingham" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
 
                 <tr>
                   <td
@@ -141,18 +143,18 @@
                       margin-bottom: 5px;
                     "
                   >
-                    <mj-raw>{% if item == "mm1" %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% if item == "mm1" %}<!-- htmlmin:ignore -->
                     MML - Birmingham - Wolverhampton - Birmingham
-                    <mj-raw>{% else %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
                     {{item}}
-                    <mj-raw>{% endif %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
                   </td>
                 </tr>
               </table>
             </div>
             <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
-            <mj-raw>{% endfor %}</mj-raw>
-            <mj-raw>{% endif %}</mj-raw>
+            <mj-raw>{% endfor %}<!-- htmlmin:ignore -->
+            <mj-raw>{% endif %}<!-- htmlmin:ignore -->
           </mj-text>
         </mj-column>
       </mj-section>

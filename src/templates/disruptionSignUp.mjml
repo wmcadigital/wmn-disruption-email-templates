@@ -31,9 +31,12 @@
         <mj-raw>{% else %}</mj-raw>
         <mj-raw>{% assign is_plural = false %}</mj-raw>
         <mj-raw>{% endif %}</mj-raw>
-        <mj-text
-          >You have signed up to receive disruptions alerts for {{Services.size}} service{% if is_plural == true %}s{%
-          endif %}.
+        <mj-text>
+          <!-- htmlmin:ignore -->{% if is_plural == true %}<!-- htmlmin:ignore -->
+          You have signed up to receive disruptions alerts for {{Services.size}} services.
+          <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+          You have signed up to receive disruptions alerts for {{Services.size}} service.
+          <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
         </mj-text>
       </mj-column>
     </mj-section>
