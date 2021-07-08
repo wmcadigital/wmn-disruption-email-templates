@@ -88,6 +88,8 @@
           <mj-text align="left" padding-top="5px">
             <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
             Line(s)
+            <!-- htmlmin:ignore -->{% elsif message.Mode == 'road' %}<!-- htmlmin:ignore -->
+            Area
             <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             Service(s)
             <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
@@ -101,11 +103,35 @@
           <mj-text align="left" padding="0 25px" font-size="16px">
             <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesTrain %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% elsif message.Mode == 'road' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedArea = message.AffectedServiceRoad %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesNWM %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
 
-            <!-- htmlmin:ignore -->{% if affectedItems.size != empty %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if affectedItems.size != empty or affectedArea %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if message.Mode == 'road' %}<!-- htmlmin:ignore -->
+
+            <!-- htmlmin:ignore -->{% assign distanceRaw = affectedArea.Distance | divided_by:1609.34 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign distanceToTakeAway = distanceRaw | modulo: 1 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if distanceToTakeAway >= 0.5 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway | plus: 1 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+
+            <!-- htmlmin:ignore -->{% if distance >= 2 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign mileString = 'miles' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign mileString = 'mile' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+            <mj-text padding-top="0px" padding-bottom="10px">
+              <ul style="list-style-type: none; padding: 0; margin: 0">
+                <li style="padding-bottom: 20px">{{affectedArea.Name}} + {{ distance }} {{ mileString }}</li>
+              </ul>
+            </mj-text>
+
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% for item in affectedItems %}<!-- htmlmin:ignore -->
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
@@ -153,8 +179,9 @@
               </table>
             </div>
             <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
-            <mj-raw>{% endfor %}<!-- htmlmin:ignore -->
-            <mj-raw>{% endif %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endfor %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
           </mj-text>
         </mj-column>
       </mj-section>
@@ -201,8 +228,15 @@
                       "
                       valign="middle"
                     >
+                      <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
+                      <!-- htmlmin:ignore -->{% capture modeParams %}<!-- htmlmin:ignore -->
+                      &mode=roads&address={{affectedArea.Name}}&lat={{affectedArea.Lat}}&lon={{affectedArea.Lon}}&radius={{distance}}
+                      <!-- htmlmin:ignore -->{% endcapture %}<!-- htmlmin:ignore -->
+                      <mj-raw>{% else %}</mj-raw>
+                      {% capture modeParams %}&mode={{ message.Mode }}{% endcapture %}
+                      <mj-raw>{% endif %}</mj-raw>
                       <a
-                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
+                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{modeParams | strip | strip_newlines }}"
                         style="
                           display: inline-block;
                           background: #ffffff;

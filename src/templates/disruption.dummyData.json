@@ -70,6 +70,21 @@
       "InfoId": "1054061806",
       "Mode": "train",
       "Severity": "Minor"
-    }
+    },
+    {
+      "Title": "Station Road, Warwickshire County Council",
+      "Subject": "Two-way signals.",
+      "AffectedServices": null,
+      "Description": null,
+      "StartDate": "2020-11-19T00:01:00Z",
+      "EndDate": "2021-11-28T05:00:00Z",
+      "AffectedServicesNWM": [],
+      "AffectedServicesIto": [],
+      "AffectedServicesTrain": [],
+      "AffectedServiceRoad": {"Name": "Area name", "Lat": 52.47780000000006, "Lon": -1.8925299999999652, "Distance": 8046.7},
+      "InfoId": "p_56e5e6_55354",
+      "Mode": "road",
+      "Severity": "Minor"
+    }   
   ]
 }
