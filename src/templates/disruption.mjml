@@ -18,7 +18,7 @@
       @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
       !important } .hover { padding-left: 25px !important; padding-right: 25px !important; } .hoversec { padding-left:
       25px !important; padding-right: 25px !important; } .betaLeft { width: 15% !important; padding-top: 10px
-      !important; } .betaRight { width: 85% !important } .footerLogo { width: 45% !important } .footerText { width: 55%
+      !important; } .betaRight { width: 80% !important } .footerLogo { width: 45% !important } .footerText { width: 55%
       !important } .policy { width: 100% !important } .privacy { margin-left: 10px !important } .footerlist {
       padding-left: 20px !important; } .footerlist li { float: left !important; display: block !important; width: 100%
       !important; text-align: left !important; } }
@@ -33,11 +33,11 @@
         <mj-raw>{% else %}</mj-raw>
         <mj-raw>{% assign is_plural = false %}</mj-raw>
         <mj-raw>{% endif %}</mj-raw>
-        <mj-raw
-          >There {% if is_plural == true %} are {% else %} is {% endif %} {{Messages.size}} new disruption update{% if
-          is_plural == true %}s{% endif %} which will affect your selected West Midlands transport service{% if
-          is_plural == true %}s{% endif %}.
-        </mj-raw>
+        <mj-text>
+          {% if is_plural == true %} There are {{Messages.size}} new disruption updates which will affect your selected
+          Tfwm transport service(s). {% else %} There is {{Messages.size}} new disruption update which will affect your
+          selected Tfwm transport service(s). {% endif %}
+        </mj-text>
       </mj-column>
     </mj-section>
 

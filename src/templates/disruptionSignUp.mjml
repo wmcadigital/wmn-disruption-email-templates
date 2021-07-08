@@ -16,7 +16,7 @@
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
       color: #ffffff !important; } .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; }
       @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
-      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important
+      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 80% !important
       } .footerLogo { width: 45% !important } .footerText { width: 55% !important } .policy { width: 100% !important }
       .privacy { margin-left: 10px !important } .footerlist { padding-left: 20px !important; } .footerlist li { float:
       left !important; display: block !important; width: 100% !important; text-align: left !important; } }
