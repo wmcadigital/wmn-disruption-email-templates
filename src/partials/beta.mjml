@@ -2,24 +2,26 @@
   background-color="#f3f2f1"
   vertical-align="middle"
   padding-top="10px"
-  padding-right="0px"
+  padding-right="10px"
   padding-bottom="10px"
-  padding-left="0px"
+  padding-left="10px"
 >
-  <mj-column vertical-align="top" width="10%" css-class="betaLeft">
-    <mj-image src="/assets/beta.png" alt="Beta" align="left" width="45px" padding="0"></mj-image>
-  </mj-column>
-  <mj-column vertical-align="middle" width="90%" padding-right="5px" css-class="betaRight">
-    <mj-text align="left" padding="0px 0 0 10px"
-      >This is a new service - your
-      <a
-        class="linkbold"
-        style="color: #3c1053 !important"
-        href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUMzI4UlRVRVFMV002VU9FWllFTDM5QjlVWS4u"
-        target="_blank"
-        >feedback</a
+  <mj-group>
+    <mj-column vertical-align="top" width="10%" css-class="betaLeft">
+      <mj-image src="/assets/beta.png" alt="Beta" align="left" width="45px" padding="0"></mj-image>
+    </mj-column>
+    <mj-column vertical-align="middle" width="90%" padding-right="5px" css-class="betaRight">
+      <mj-text align="left" padding="0px 0 0 10px"
+        >This is a new service - your
+        <a
+          class="linkbold"
+          style="color: #3c1053 !important"
+          href="https://forms.office.com/Pages/ResponsePage.aspx?id=RetZCK7xCk6e-ubWa7tnLz45Weo_RTVDpYxVYcrD8wxUMzI4UlRVRVFMV002VU9FWllFTDM5QjlVWS4u"
+          target="_blank"
+          >feedback</a
+        >
+        will help us to improve it.</mj-text
       >
-      will help us to improve it.</mj-text
-    >
-  </mj-column>
+    </mj-column>
+  </mj-group>
 </mj-section>
