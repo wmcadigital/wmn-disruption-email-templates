@@ -1,6 +1,6 @@
-<mjml>
+<mjml lang="en">
   <mj-head>
-    <mj-title>WMN Disruption Alerts</mj-title>
+    <mj-title>TfWM Disruption Alerts</mj-title>
     <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
     <mj-attributes>
       <mj-all font-family="Noto Sans, Arial, Helvetica, sans-serif"></mj-all>
@@ -9,20 +9,29 @@
     <mj-style inline="inline"> .link { color: #231f20 !important; text-decoration: underline !important; } </mj-style>
     <mj-style inline="inline">
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
+      .preheader { display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px;
+      opacity: 0; overflow: hidden; }
     </mj-style>
     <mj-style>
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
       color: #ffffff !important; } .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; }
       @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
-      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important
+      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 80% !important
       } .footerLogo { width: 45% !important } .footerText { width: 55% !important } .policy { width: 100% !important }
-      .privacy { margin-left: 10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
+      .privacy { margin-left: 10px !important } .footerlist { padding-left: 20px !important; } .footerlist li { float:
+      left !important; display: block !important; width: 100% !important; text-align: left !important; } }
     </mj-style>
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
+    <mj-section css-class="preheader" full-width="full-width" text-align="left">
+      <mj-column>
+        <mj-text align="left" padding-top="0px" padding-bottom="20px">
+          Here is the link you requested to manage your disruption alerts:
+        </mj-text>
+      </mj-column>
+    </mj-section>
     <mj-include path="../partials/header.mjml" />
-
     <mj-wrapper>
       <mj-section padding="0 10px"></mj-section>
     </mj-wrapper>

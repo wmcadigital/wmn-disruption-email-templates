@@ -1,6 +1,6 @@
-<mjml>
+<mjml lang="en">
   <mj-head>
-    <mj-title>WMN Disruption Alerts</mj-title>
+    <mj-title>TfWM Disruption Alerts</mj-title>
     <mj-font name="Noto Sans" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"></mj-font>
     <mj-attributes>
       <mj-all font-family="Noto Sans, Arial, Helvetica, sans-serif"></mj-all>
@@ -9,21 +9,42 @@
     <mj-style inline="inline"> .link { color: #231f20 !important; text-decoration: underline !important; } </mj-style>
     <mj-style inline="inline">
       .linkbold { color: #231f20 !important; text-decoration: underline !important; font-weight: 700 !important; }
+      .preheader { display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px;
+      opacity: 0; overflow: hidden; }
     </mj-style>
     <mj-style>
       .hover a { color: #ffffff !important; } .hover:hover td, .hover:hover a { background-color: #145889 !important;
       color: #ffffff !important; } .hoversec:hover td, .hoversec:hover a { background-color: #e2cee7 !important; }
       @media (max-width:480px) { .mainBody table td:first-of-type { padding: 10px !important; } .logotxt { display: none
-      !important } .betaLeft { width: 15% !important; padding-top: 10px !important; } .betaRight { width: 85% !important
-      } .footerLogo { width: 45% !important } .footerText { width: 55% !important } .policy { width: 100% !important }
-      .privacy { margin-left: 10px !important } .footerlist li { float: left !important; margin-right: 20px; } }
+      !important } .hover { padding-left: 25px !important; padding-right: 25px !important; } .hoversec { padding-left:
+      25px !important; padding-right: 25px !important; } .betaLeft { width: 15% !important; padding-top: 10px
+      !important; } .betaRight { width: 80% !important } .footerLogo { width: 45% !important } .footerText { width: 55%
+      !important } .policy { width: 100% !important } .privacy { margin-left: 10px !important } .footerlist {
+      padding-left: 20px !important; } .footerlist li { float: left !important; display: block !important; width: 100%
+      !important; text-align: left !important; } }
     </mj-style>
   </mj-head>
 
   <mj-body background-color="#f3f2f1">
-    <mj-include path="../partials/header.mjml" />
+    <mj-section css-class="preheader" full-width="full-width" text-align="left">
+      <mj-column>
+        <mj-raw>{% if Messages.size > 1 %}</mj-raw>
+        <mj-raw>{% assign is_plural = true %}</mj-raw>
+        <mj-raw>{% else %}</mj-raw>
+        <mj-raw>{% assign is_plural = false %}</mj-raw>
+        <mj-raw>{% endif %}</mj-raw>
+        <mj-text>
+          <!-- htmlmin:ignore -->{% if is_plural == true %}<!-- htmlmin:ignore -->
+          There are {{Messages.size}} new disruption updates which will affect your selected Tfwm transport service(s).
+          <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+          There is {{Messages.size}} new disruption update which will affect your selected Tfwm transport service(s).
+          <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+        </mj-text>
+      </mj-column>
+    </mj-section>
 
-    <mj-wrapper padding="0px 10px">
+    <mj-include path="../partials/header.mjml" />
+    <mj-wrapper padding="0px">
       <mj-include path="../partials/beta.mjml" />
 
       <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
@@ -55,9 +76,9 @@
             There {% if is_future_disruption == true %} will be {% else %} is {% endif %} a
             {{message.Severity|downcase}} {{message.Mode}} disruption {% if message.Mode != 'train' %}due to{% endif %}
             {{message.Subject|downcase}}
-            <mj-raw>{% if message.Mode == 'bus' %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'bus' %}<!-- htmlmin:ignore -->
             at {{message.Title}}.
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
           </mj-text>
         </mj-column>
       </mj-section>
@@ -65,11 +86,13 @@
       <mj-section background-color="#FFFFFF" padding="15px 25px">
         <mj-column width="100%" vertical-align="top" css-class="services">
           <mj-text align="left" padding-top="5px">
-            <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
             Line(s)
-            <mj-raw>{% else %}</mj-raw>
+            <!-- htmlmin:ignore -->{% elsif message.Mode == 'road' %}<!-- htmlmin:ignore -->
+            Area
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             Service(s)
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
             affected:
           </mj-text>
         </mj-column>
@@ -78,14 +101,31 @@
       <mj-section background-color="#FFFFFF" padding="0 25px">
         <mj-column width="100%" vertical-align="top" css-class="servicelist">
           <mj-text align="left" padding="0 25px" font-size="16px">
-            <mj-raw>{% if message.Mode == 'train' %}</mj-raw>
-            <mj-raw>{% assign affectedItems = message.AffectedServicesTrain %}</mj-raw>
-            <mj-raw>{% else %}</mj-raw>
-            <mj-raw>{% assign affectedItems = message.AffectedServicesNWM %}</mj-raw>
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if message.Mode == 'train' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesTrain %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% elsif message.Mode == 'road' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedArea = message.AffectedServiceRoad %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign affectedItems = message.AffectedServicesNWM %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
 
-            <mj-raw>{% if affectedItems.size != empty %}</mj-raw>
-            <mj-raw>{% for item in affectedItems %}</mj-raw>
+            <!-- htmlmin:ignore -->{% if affectedItems.size != empty or affectedArea %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if message.Mode == 'road' %}<!-- htmlmin:ignore -->
+
+            <!-- htmlmin:ignore -->{% assign distance = affectedArea.Distance | divided_by:1609.34 | round %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if distance > 1 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign mileString = 'miles' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign mileString = 'mile' %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+            <mj-text padding-top="0px" padding-bottom="10px">
+              <ul style="list-style-type: none; padding: 0; margin: 0">
+                <li style="padding-bottom: 20px">{{affectedArea.Name}} + {{ distance }} {{ mileString }}</li>
+              </ul>
+            </mj-text>
+
+            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% for item in affectedItems %}<!-- htmlmin:ignore -->
             <!--[if ( gte mso 9) | (IE)]><table align="left"><tr><td align="center" valign="top" style="padding: 0 4px 5px 0;"><![endif]-->
             <div style="display: inline-block; vertical-align: top; margin: 0 4px 5px 0">
               <table
@@ -97,16 +137,16 @@
                 border="0"
                 style="border-collapse: collapse; background: #ffffff"
               >
-                <mj-raw>{% if message.Severity == 'Major' %}</mj-raw>
-                <mj-raw>{% assign color = "#d4351c" %}</mj-raw>
-                <mj-raw>{% elsif message.Severity == 'Severe' %}</mj-raw>
-                <mj-raw>{% assign color = "#000000" %}</mj-raw>
-                <mj-raw>{% else %}</mj-raw>
-                <mj-raw>{% assign color = "#cc6900" %}</mj-raw>
-                <mj-raw>{% endif %}</mj-raw>
-                <mj-raw>{% if item == "mm1" %}</mj-raw>
-                <mj-raw>{% assign tramItem = "MML - Birmingham - Wolverhampton - Birmingham" %}</mj-raw>
-                <mj-raw>{% endif %}</mj-raw>
+                <!-- htmlmin:ignore -->{% if message.Severity == 'Major' %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#d4351c" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% elsif message.Severity == 'Severe' %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#000000" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign color = "#cc6900" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% if item == "mm1" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% assign tramItem = "MML - Birmingham - Wolverhampton - Birmingham" %}<!-- htmlmin:ignore -->
+                <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
 
                 <tr>
                   <td
@@ -122,18 +162,19 @@
                       margin-bottom: 5px;
                     "
                   >
-                    <mj-raw>{% if item == "mm1" %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% if item == "mm1" %}<!-- htmlmin:ignore -->
                     MML - Birmingham - Wolverhampton - Birmingham
-                    <mj-raw>{% else %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
                     {{item}}
-                    <mj-raw>{% endif %}</mj-raw>
+                    <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
                   </td>
                 </tr>
               </table>
             </div>
             <!--[if (mso) | (IE)]></td></tr></table><![endif]-->
-            <mj-raw>{% endfor %}</mj-raw>
-            <mj-raw>{% endif %}</mj-raw>
+            <!-- htmlmin:ignore -->{% endfor %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
           </mj-text>
         </mj-column>
       </mj-section>
@@ -180,8 +221,14 @@
                       "
                       valign="middle"
                     >
+                      <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
+                      {% capture modeParams %}&mode=roads&address={{ affectedArea.Name }}&lat={{ affectedArea.Lat
+                      }}&lon={{ affectedArea.Lon }}&radius={{ distance }}{% endcapture %}
+                      <mj-raw>{% else %}</mj-raw>
+                      {% capture modeParams %}&mode={{ message.Mode }}{% endcapture %}
+                      <mj-raw>{% endif %}</mj-raw>
                       <a
-                        href="https://disruptions.wmnetwork.co.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}"
+                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{modeParams}}"
                         style="
                           display: inline-block;
                           background: #ffffff;
@@ -241,9 +288,9 @@
           <mj-text align="left" padding="0 25px">
             <p>
               To see the most recent updates, please visit our
-              <a href="https://twitter.com/WMNetwork" class="linkbold">Twitter (@WMNetwork)</a> or visit the
-              <a class="linkbold" href="https://disruptions.wmnetwork.co.uk" target="_blank">Disruptions section</a>
-              of the West Midlands Network website.
+              <a href="https://twitter.com/TransportForWM" class="linkbold">Twitter (@TransportForWM)</a> or visit the
+              <a class="linkbold" href="https://disruptions.tfwm.org.uk" target="_blank">Disruptions section</a>
+              of the Transport for West Midlands website.
             </p>
           </mj-text>
         </mj-column>
