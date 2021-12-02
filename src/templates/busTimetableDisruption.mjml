@@ -28,17 +28,20 @@
   <mj-body background-color="#f3f2f1">
     <mj-section css-class="preheader" full-width="full-width" text-align="left">
       <mj-column>
-        <mj-text> The timetable for the {{Description}} bus will change from {{StartTime}}. </mj-text>
+        <mj-text> There has been an update to one or more of your subscribed bus services. </mj-text>
       </mj-column>
     </mj-section>
 
     <mj-include path="../partials/header.mjml" />
     <mj-wrapper padding="0px">
       <mj-include path="../partials/beta.mjml" />
-
-      <mj-section padding="25px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
+      <mj-section padding="25px 25px 0" background-color="#FFFFFF" css-class="mainBody">
         <mj-column width="100%">
           <mj-text align="left">Hi {{Name}},</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0px 25px 0 25px" background-color="#FFFFFF" css-class="mainBody">
+        <mj-column width="100%">
           <mj-text align="left"
             >The timetable for the <strong>{{Description}}</strong> bus will change from
             <strong>{{StartTime}}</strong>.</mj-text
@@ -58,7 +61,7 @@
             line-height="24px"
             font-weight="bold"
             font-size="16px"
-            href="{{ConfirmLink}}"
+            href="{{ResponseUrl}}"
             css-class="hover"
             height="30px"
           >
