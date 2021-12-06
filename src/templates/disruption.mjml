@@ -112,15 +112,8 @@
             <!-- htmlmin:ignore -->{% if affectedItems.size != empty or affectedArea %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% if message.Mode == 'road' %}<!-- htmlmin:ignore -->
 
-            <!-- htmlmin:ignore -->{% assign distanceRaw = affectedArea.Distance | divided_by:1609.34 %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% assign distanceToTakeAway = distanceRaw | modulo: 1 %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% if distanceToTakeAway >= 0.5 %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway | plus: 1 %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway %}<!-- htmlmin:ignore -->
-            <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
-
-            <!-- htmlmin:ignore -->{% if distance >= 2 %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% assign distance = affectedArea.Distance | divided_by:1609.34 | round %}<!-- htmlmin:ignore -->
+            <!-- htmlmin:ignore -->{% if distance > 1 %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% assign mileString = 'miles' %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
             <!-- htmlmin:ignore -->{% assign mileString = 'mile' %}<!-- htmlmin:ignore -->
@@ -229,14 +222,13 @@
                       valign="middle"
                     >
                       <mj-raw>{% if message.Mode == 'road' %}</mj-raw>
-                      <!-- htmlmin:ignore -->{% capture modeParams %}<!-- htmlmin:ignore -->
-                      &mode=roads&address={{affectedArea.Name}}&lat={{affectedArea.Lat}}&lon={{affectedArea.Lon}}&radius={{distance}}
-                      <!-- htmlmin:ignore -->{% endcapture %}<!-- htmlmin:ignore -->
+                      {% capture modeParams %}&mode=roads&address={{ affectedArea.Name }}&lat={{ affectedArea.Lat
+                      }}&lon={{ affectedArea.Lon }}&radius={{ distance }}{% endcapture %}
                       <mj-raw>{% else %}</mj-raw>
                       {% capture modeParams %}&mode={{ message.Mode }}{% endcapture %}
                       <mj-raw>{% endif %}</mj-raw>
                       <a
-                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{modeParams | strip | strip_newlines }}"
+                        href="https://disruptions.tfwm.org.uk/?selectedByMap=true&amp;selectedItem={{message.InfoId}}{{modeParams}}"
                         style="
                           display: inline-block;
                           background: #ffffff;

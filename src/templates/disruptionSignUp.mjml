@@ -101,15 +101,8 @@
           <mj-text padding-top="0px" padding-bottom="10px">
             <ul style="list-style-type: none; padding: 0; margin: 0">
               {% for item in RoadLines %}
-              <!-- htmlmin:ignore -->{% assign distanceRaw = item.distance | divided_by:1609.34 %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% assign distanceToTakeAway = distanceRaw | modulo: 1 %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% if distanceToTakeAway >= 0.5 %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway | plus: 1 %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% else %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% assign distance = distanceRaw | minus: distanceToTakeAway %}<!-- htmlmin:ignore -->
-              <!-- htmlmin:ignore -->{% endif %}<!-- htmlmin:ignore -->
-
-              <mj-raw>{% if distance >= 2 %}</mj-raw>
+              <mj-raw>{% assign distance = item.distance | divided_by:1609.34 | round %}</mj-raw>
+              <mj-raw>{% if distance > 1 %}</mj-raw>
               <mj-raw>{% assign mileString = 'miles' %}</mj-raw>
               <mj-raw>{% else %}</mj-raw>
               <mj-raw>{% assign mileString = 'mile' %}</mj-raw>
