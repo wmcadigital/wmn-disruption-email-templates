@@ -19,7 +19,7 @@
   "homepage": "https://github.com/wmcadigital/wmn-disruption-email-templates#readme",
   "devDependencies": {
     "@tuanpham-dev/gulp-liquidjs": "0.0.8",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.27.10",
     "del": "^6.0.0",
     "fs": "0.0.1-security",
     "gulp": "^4.0.2",
